@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <title>Pirate Island Puzzle Game</title>
+ <!-- Latest compiled and minified Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!--link rel="stylesheet" href="theme/css/rdark.css" /-->
+<link rel="stylesheet" type="text/css" href="theme/css/main.css" />
+
+    <!-- Using MathJax, with the delimiters $ -->
+<!-- Conflict with pygments for the .mo and .mi -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+  "HTML-CSS": {
+  styles: {
+  ".MathJax .mo, .MathJax .mi": {color: "black ! important"}}
+  },
+  tex2jax: {inlineMath: [['$','$'], ['\\\\(','\\\\)']],processEscapes: true}
+  });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+
+</head>
+<body>
+    
+    <title></title>
+    
+<nav >
+  <div class="container" id="navbar">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="index.html">Thomas</a>
+    </div>
+    <ul class="nav navbar-nav">
+    </ul>
+  </div>
+</nav>
+    
+    
+<!-- Main Content -->
+ <div class="container" id="main">
+<div class="row">
+ <div class="col-md-12">
+     <h1><strong>Project Details | </strong>Pirate Island Puzzle Game</h1>
+     <br>
+     <h4 style="padding-left: 7%; padding-right: 7%;"><p>Implementation of an online pirate puzzle game with Oracle Spatial</p></h4>
+     
+     
+     <div class="content">
+         <hr style="border-width: thin; border-color: black">
+         
+        <p>
+            <img src="theme/img/date3.png" style="height:25px" class="icon">  
+            
+            <strong> | Project Date -- </strong> 2018</p>
+         
+         
+         <p>
+                <img src="theme/img/skills2.png" style="height:25px" class="icon">             
+             <strong> | Skills Used -- </strong>
+        <a href="./python.html">python</a> | 
+        <a href="./webprogramming.html">webprogramming</a> | 
+        <a href="./object-oriented-programming.html">object-oriented programming</a> | 
+        <a href="./sql.html">sql</a> | 
+        <a href="./oracle-spatial.html">oracle spatial</a> | 
+        <a href="./spatial-databases.html">spatial databases</a> | 
+        <a href="./svg.html">svg</a> | 
+    </p>
+     
+
+
+    
+
+
+                            <p><a target="_blank" href="https://www.geos.ed.ac.uk/~s1790173/pirate/" class="icons">
+                    <img src="theme/img/link2.png" style="height:25px" class="icon"></a>
+                <strong> | Link to Project -- </strong> <a target="_blank" href="https://www.geos.ed.ac.uk/~s1790173/pirate/">https://www.geos.ed.ac.uk/~s1790173/pirate/</a></p>
+         
+         
+         
+                <p><a target="_blank" href="https://github.com/liviajakob/pirateisland" class="icons">
+                    <img src="theme/img/github.png" style="height:25px" class="icon"></a>
+                    <strong> | Repository -- </strong> <a target="_blank" href="https://github.com/liviajakob/pirateisland">https://github.com/liviajakob/pirateisland</a></p>
+         
+         <hr style="border-width: thin; border-color: black; padding-bottom: 4%;">
+
+         <p><h2><strong>Project Overview |</strong> Pirate Island</h2>
+<p><a href="./img/pirate.png"><img alt="tiny" src="./img/pirate.png"></a></p>
+<p>We created this fun pirate puzzle game within 4 weeks for a spatial database course.</p>
+<p><strong>Developers:</strong> Martin Ewart, Livia Jakob, Marco Pizzo, Callum Crawford</p>
+<p><strong>Project Summary:</strong> The primary objective of this project was to implement a database in Oracle Spatial to store spatial data, and execute spatial queries and computations. This was achieved by building a game platform. This project contains a number of spatial operations and data structures, allowing us to improve our knowledge of Oracle Spatial, while creating something fun and interactive.</p>
+<p><strong>My resposibility within the group:</strong> I developed the whole game flow and user interaction using JavaScript, AJAX and Python3. I programmed web page animations, the interactions between the web page, Python and the database when submitting moves or retrieving new levels.</p>
+<p>&nbsp;</p>
+<p>The code can be found in this GitHub repository: <a href="https://github.com/liviajakob/pirateisland">https://github.com/liviajakob/pirateisland</a></p>
+<p><strong>Check out if you can beat the highscores and play the game <a href="https://www.geos.ed.ac.uk/~s1790173/pirate/">here</a></strong> (and don't forget to turn the music on!).</p>
+<p>&nbsp;</p>
+<h2>1 Game Description</h2>
+<p><em>Pirate Island</em> is an interactive website that tasks the player to move a pirate ship to the treasure in the quickest time possible while a timer counts down. This can be done through the player typing the moves into an input box or by entering moves into a form. Islands, octopi and other frightening devils of the sea await however, with the weather ever-changing this is no easy task. On completion the player will collect the remaining seconds as points, which accumulate as they pass through the levels. Having completed all five levels (Figures 1 and 2) they will be prompted to add their pirate name to the leader board. Talented pirates are displayed on the leader board and their notoriety on the rough seas secured in the abysses of the database.</p>
+<p>&nbsp;</p>
+<h2>2 Architecture</h2>
+<h3>2.1 Architecture Overview</h3>
+<p>An Oracle Spatial database stores levels and obstacles. A Python object model sits on top of the database that loads and creates dynamic content such as the level SVG which is then inserted into a Jinja2 template. JavaScript handles the user interaction and the game flow. After the player submits moves the requested path is passed through AJAX to a Python script. Spatial queries such as intersection and distance with Oracle Spatial determine whether the player successfully navigates the ship to the treasure. The validated path and information on whether the ship sinks, crashes or arrives at the treasure are handed back in JSON format. The use of AJAX enables the animation of the ship movement without refreshing the page. Adding a name and score to the leader board in the database follows a similar logic as the move submission described above.</p>
+<p>&nbsp;</p>
+<h3>2.2 Technologies</h3>
+<ul>
+<li><strong>SVG</strong> -- Graphics of the games and website.</li>
+<li><strong>Python3</strong> -- Used to manage all interactions with the database. It generates the HTML code that forms the website and is acting as the translator between the user interface and the database.</li>
+<li><strong>Nose</strong> -- Used to unit test the Python code</li>
+<li><strong>Jinja2</strong> -- Adds the SVG game field and other dynamic HTML content generated by Python to a HTML template.</li>
+<li><strong>JavaScript</strong> -- Responsible for the whole user interaction, handling of the game flow and dynamic game display such as animations.</li>
+<li><strong>Bootstrap</strong> -- Used to ensure that the website content is adaptive to different screen sizes.</li>
+<li><strong>HTML5</strong> -- Displays the website content.</li>
+<li><strong>CSS</strong> -- Styles the website and SVG elements.</li>
+<li><strong>Oracle Spatial</strong> -- Stores level data and spatial objects with views sitting on top of the tables.</li>
+<li><strong>AJAX (jQuery)</strong> -- Passes the players moves to a Python script, which communicates with the database. In the opposite direction, it receives then the evaluated path from the database through Python without the need for refreshing the page.</li>
+<li><strong>JSON</strong> -- Data format to send and receive data with AJAX.</li>
+<li><strong>GitHub</strong> -- Used for collaborative work and version control.</li>
+</ul>
+<p>&nbsp;</p>
+<h3>2.3 Data Driven and Multi-User</h3>
+<p>The system has been designed so that all components are generic. Once added in the database, a level can be loaded, rendered and played without any code changes. The Python, JavaScript, AJAX and HTML code are completely data driven. </p>
+<p>This allows the following features:</p>
+<ul>
+<li>Flexible start/end points</li>
+<li>Grid adaptability</li>
+<li>Multiple objects per level</li>
+<li>Variable object size and types</li>
+<li>Objects can have different patterns and new patterns can be added</li>
+<li>Simple database entry changes or creates new levels without changing any code</li>
+</ul>
+<p>Furthermore, the system allows multiple users to play the game at the same time.</p>
+<p>&nbsp;</p>
+<h2>4 Summary</h2>
+<p>Within a short time frame, Pirate Island has been developed and released for beta testing. A generic framework has been created allowing configurable levels which can easily be extended. Furthermore, the game demonstrates storing spatial objects and performing spatial operations based on user inputs. In particular, an iterative spatial method was built that determines where a route intersects with a polygon. In addition, a fully interactive user interface that animates and moves spatial objects defined by the database has been built. Some limitations were found during the beta testing phase, however these can easily be addressed in future versions. Overall, a fun game with a flexible framework demonstrating a range of spatial database operations has been created.</p>
+<p>&nbsp;</p>
+<h2>5 Screenshots</h2>
+<p><a href="./img/pirate0.png"><img alt="medium" src="./img/pirate0.png"></a></p>
+<p><a href="./img/pirate2.png"><img alt="medium" src="./img/pirate2.png"></a></p>
+<p><a href="./img/level1.png"><img alt="vsmall" src="./img/level1.png"></a></p>
+<p><a href="./img/level2.png"><img alt="vsmall" src="./img/level2.png"></a></p>
+<p><a href="./img/level3.png"><img alt="vsmall" src="./img/level3.png"></a></p>
+<p><a href="./img/pirate3.png"><img alt="medium" src="./img/pirate3.png"></a></p></p>
+     </div>
+ </div>
+</div>
+</div>
+<!-- End of Main Content --> 
+   
+    
+<!--  Footer   -->
+    <div class="container" id="footer">
+        <ul>
+            <li>
+                <a href="mailto:livia.jakob@geo-blog.com">
+                    <img src="theme/img/email.png" style="height:28px" class="icon">
+                </a> 
+            
+            </li>   
+            <li><b>|</b></li>
+            <li>                
+                <a target="_blank" href="https://www.linkedin.com/in/livia-jakob/">
+                    <img src="theme/img/linkedin.png" style="height:25px" class="icon">
+                </a> 
+            </li>
+            <li><b>|</b></li>
+                <li>
+                <a target="_blank" href="https://github.com/liviajakob/">
+                    <img src="theme/img/github.png" style="height:28px" class="icon">
+                </a>
+            </li>
+        </ul>
+    </div>
+    
+<!--  End Footer  -->
+    
+</body>
+</html>

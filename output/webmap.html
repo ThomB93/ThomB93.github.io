@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <title>SVG Webmap with Database</title>
+ <!-- Latest compiled and minified Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!--link rel="stylesheet" href="theme/css/rdark.css" /-->
+<link rel="stylesheet" type="text/css" href="theme/css/main.css" />
+
+    <!-- Using MathJax, with the delimiters $ -->
+<!-- Conflict with pygments for the .mo and .mi -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+  "HTML-CSS": {
+  styles: {
+  ".MathJax .mo, .MathJax .mi": {color: "black ! important"}}
+  },
+  tex2jax: {inlineMath: [['$','$'], ['\\\\(','\\\\)']],processEscapes: true}
+  });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+
+</head>
+<body>
+    
+    <title></title>
+    
+<nav >
+  <div class="container" id="navbar">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="index.html">Thomas</a>
+    </div>
+    <ul class="nav navbar-nav">
+    </ul>
+  </div>
+</nav>
+    
+    
+<!-- Main Content -->
+ <div class="container" id="main">
+<div class="row">
+ <div class="col-md-12">
+     <h1><strong>Project Details | </strong>SVG Webmap with Database</h1>
+     <br>
+     <h4 style="padding-left: 7%; padding-right: 7%;"><p>Implementation of a generic SVG webmap using data stored in a database</p></h4>
+     
+     
+     <div class="content">
+         <hr style="border-width: thin; border-color: black">
+         
+        <p>
+            <img src="theme/img/date3.png" style="height:25px" class="icon">  
+            
+            <strong> | Project Date -- </strong> 2017</p>
+         
+         
+         <p>
+                <img src="theme/img/skills2.png" style="height:25px" class="icon">             
+             <strong> | Skills Used -- </strong>
+        <a href="./webprogramming.html">webprogramming</a> | 
+        <a href="./sql.html">sql</a> | 
+        <a href="./maps.html">maps</a> | 
+        <a href="./webdesign.html">webdesign</a> | 
+        <a href="./spatial-databases.html">spatial databases</a> | 
+        <a href="./python.html">python</a> | 
+        <a href="./svg.html">svg</a> | 
+    </p>
+     
+
+
+    
+
+
+                            <p><a target="_blank" href="https://www.geos.ed.ac.uk/~s1790173/cgi-bin/fields/fields.py" class="icons">
+                    <img src="theme/img/link2.png" style="height:25px" class="icon"></a>
+                <strong> | Link to Project -- </strong> <a target="_blank" href="https://www.geos.ed.ac.uk/~s1790173/cgi-bin/fields/fields.py">https://www.geos.ed.ac.uk/~s1790173/cgi-bin/fields/fields.py</a></p>
+         
+         
+         
+         
+         <hr style="border-width: thin; border-color: black; padding-bottom: 4%;">
+
+         <p><h2><strong>Project Overview |</strong> Fields and Finds</h2>
+<p><img alt="tiny" src="./img/webmap.png"></p>
+<p>For this project I have developed a database model and implemented it in an Oracle database. </p>
+<p>The map data is retrieved by a python script which accesses the Oracle database and queries it with SQL queries. The python script displays the data on a web server (the webmap is created on-the-fly). The SVG map is created as such that changing the data inside the database would change the content of the map.</p>
+<p>The webmap is <strong>interactive</strong> (hovering, clicking, querying and display/hide layers) which is programmed in JavaScript.</p>
+<p>&nbsp;</p>
+<p><strong>Explore the result:</strong> <a href="https://www.geos.ed.ac.uk/~s1790173/cgi-bin/fields/fields.py">https://www.geos.ed.ac.uk/~s1790173/cgi-bin/fields/fields.py</a></p>
+<p>&nbsp;</p>
+<h2><strong>Database Model |</strong> Implemented in Oracle</h2>
+<p><a href="./img/webmapdb.png"><img alt="medium" src="./img/webmapdb.png"></a></p>
+<p>&nbsp;
+&nbsp;</p>
+<h2><strong>Example Screenshots |</strong> <a href="www.kindrogan.geo-blog.com">www.kindrogan.geo-blog.com</a></h2>
+<p>&nbsp;</p>
+<p><a href="./img/webmap1.png"><img alt="medium" src="./img/webmap1.png"></a></p>
+<p><a href="./img/webmap2.png"><img alt="small" src="./img/webmap2.png"></a></p>
+<p><a href="./img/webmap3.png"><img alt="small" src="./img/webmap3.png"></a></p></p>
+     </div>
+ </div>
+</div>
+</div>
+<!-- End of Main Content --> 
+   
+    
+<!--  Footer   -->
+    <div class="container" id="footer">
+        <ul>
+            <li>
+                <a href="mailto:livia.jakob@geo-blog.com">
+                    <img src="theme/img/email.png" style="height:28px" class="icon">
+                </a> 
+            
+            </li>   
+            <li><b>|</b></li>
+            <li>                
+                <a target="_blank" href="https://www.linkedin.com/in/livia-jakob/">
+                    <img src="theme/img/linkedin.png" style="height:25px" class="icon">
+                </a> 
+            </li>
+            <li><b>|</b></li>
+                <li>
+                <a target="_blank" href="https://github.com/liviajakob/">
+                    <img src="theme/img/github.png" style="height:28px" class="icon">
+                </a>
+            </li>
+        </ul>
+    </div>
+    
+<!--  End Footer  -->
+    
+</body>
+</html>

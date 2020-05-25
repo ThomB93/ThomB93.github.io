@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <title>MSc Dissertation</title>
+ <!-- Latest compiled and minified Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!--link rel="stylesheet" href="theme/css/rdark.css" /-->
+<link rel="stylesheet" type="text/css" href="theme/css/main.css" />
+
+    <!-- Using MathJax, with the delimiters $ -->
+<!-- Conflict with pygments for the .mo and .mi -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+  "HTML-CSS": {
+  styles: {
+  ".MathJax .mo, .MathJax .mi": {color: "black ! important"}}
+  },
+  tex2jax: {inlineMath: [['$','$'], ['\\\\(','\\\\)']],processEscapes: true}
+  });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+
+</head>
+<body>
+    
+    <title></title>
+    
+<nav >
+  <div class="container" id="navbar">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="index.html">Thomas</a>
+    </div>
+    <ul class="nav navbar-nav">
+    </ul>
+  </div>
+</nav>
+    
+    
+<!-- Main Content -->
+ <div class="container" id="main">
+<div class="row">
+ <div class="col-md-12">
+     <h1><strong>Project Details | </strong>MSc Dissertation</h1>
+     <br>
+     <h4 style="padding-left: 7%; padding-right: 7%;"><p>Building a visual data sharing platform for a research group</p></h4>
+     
+     
+     <div class="content">
+         <hr style="border-width: thin; border-color: black">
+         
+        <p>
+            <img src="theme/img/date3.png" style="height:25px" class="icon">  
+            
+            <strong> | Project Date -- </strong> 2018</p>
+         
+         
+         <p>
+                <img src="theme/img/skills2.png" style="height:25px" class="icon">             
+             <strong> | Skills Used -- </strong>
+        <a href="./python.html">python</a> | 
+        <a href="./data-sharing.html">data-sharing</a> | 
+        <a href="./object-oriented-programming.html">object-oriented programming</a> | 
+        <a href="./data-formats.html">data formats</a> | 
+        <a href="./webprogramming.html">webprogramming</a> | 
+        <a href="./sql.html">sql</a> | 
+        <a href="./user-centred-design.html">user-centred design</a> | 
+        <a href="./data-visualisation.html">data visualisation</a> | 
+    </p>
+     
+
+
+    
+
+
+         
+         
+         
+                <p><a target="_blank" href="https://github.com/liviajakob/data-sharing-platform" class="icons">
+                    <img src="theme/img/github.png" style="height:25px" class="icon"></a>
+                    <strong> | Repository -- </strong> <a target="_blank" href="https://github.com/liviajakob/data-sharing-platform">https://github.com/liviajakob/data-sharing-platform</a></p>
+         
+         <hr style="border-width: thin; border-color: black; padding-bottom: 4%;">
+
+         <p><h2><strong>Project Overview |</strong> Visual Data Sharing Platform</h2>
+<p><strong>Project Submission:</strong> August 2018</p>
+<p>&nbsp;</p>
+<p><a href="./img/msc0.png"><img alt="tiny" src="./img/msc0.png"></a></p>
+<p>We know that data sharing facilitates the scientific process enormously and yet not so many researchers are doing it (Schofield et al. 2009). In a survey conducted by Tenopir et al. (2011) researchers report reasons why their scientific data is not electronically available to others, with <em>'no place to put data'</em> amongst the leading reasons. My personal aim is to look for incentives that could motivate more researchers to share their data. Also, I'm very excited that I can improve my programming skills in the next couple of months and implement the first bigger project just by myself.</p>
+<p>&nbsp;</p>
+<p>In my MSc dissertation project I will investigate the requirements of research groups for data sharing tools and exploring techniques to visualise and contextualise data sets within such a tool. As a proof of concept a web platform for a glaciology and cryosphere research group will be implemented, with the following main functionalities:</p>
+<ol>
+<li>enabling a research group to share data with research partners and a wider community in a utilisable way</li>
+<li>enabling a research group to visualise and contextualise intermediate results for internal use</li>
+</ol>
+<p>To detect researchers needs and requirements a user-centred design (UCD) approach will be applied. The UCD process will be fully documented to share challenges and lessons-learned with future data sharing platform developers.</p>
+<p>&nbsp;</p>
+<p><strong>Track my programming progress</strong> in this GitHub repository: <a href="https://github.com/liviajakob/data-sharing-platform">https://github.com/liviajakob/data-sharing-platform</a></p>
+<p>&nbsp;</p>
+<p><strong>See my project presentation <a href="https://prezi.com/view/IMPHjiggeRBnQjlWeSik/">here</a></strong> (Prezi presentation).</p>
+<p>&nbsp;</p>
+<h2>User-Centred Design Approach</h2>
+<p>Below a diagram of my <em>User-centred Design</em> workflow.</p>
+<p><a href="./img/ucd.png"><img alt="medium" src="./img/ucd.png"></a></p>
+<h2>Architecture Design</h2>
+<p>Below a conceptual diagram of the proposed architecture design.</p>
+<p><a href="./img/msc1.png"><img alt="medium" src="./img/msc1.png"></a></p>
+<h2>Technologies</h2>
+<p>I'm currently using (/plan to use) the following tools and technologies:</p>
+<ul>
+<li><strong>python3</strong> -- back-end</li>
+<li><strong>Flask</strong> -- python web framework</li>
+<li><strong>Flask-RESTful</strong> -- for REST API with Flask</li>
+<li><strong>Jinja2</strong> -- templating</li>
+<li><strong>HTML5 | CSS | JavaScript</strong> -- front-end</li>
+<li><strong>Leaflet</strong> -- JavaScript library for mapping</li>
+<li><strong>JSON</strong> -- data exchange</li>
+<li><strong>gdal</strong> -- for raster manipulation (gdal2tiles for generating tiles)</li>
+<li><strong>SQLAlchemy</strong> -- SQL toolkit to make database flexible (also use of ORM)</li>
+<li><strong>SQLite</strong> -- database for meta data</li>
+</ul>
+<p>&nbsp;</p>
+<h2>Sources</h2>
+<p><strong>TENOPIR, C., ALLARD, S., DOUGLASS, K., AYDINOGLU, A.U., WU, L., READ, E., MANOFF, M. &amp; FRAME, M. 2011.</strong> Data Sharing by Scientists: Practices and Perceptions. PLOS ONE, 6, e21101, 10.1371/journal.pone.0021101.</p>
+<p><strong>SCHOFIELD, P.N., BUBELA, T., WEAVER, T., PORTILLA, L., BROWN, S.D., HANCOCK, J.M., EINHORN, D., et al. 2009.</strong> Post-publication sharing of data and tools. Nature, 461, 171-173, 10.1038/461171a.</p></p>
+     </div>
+ </div>
+</div>
+</div>
+<!-- End of Main Content --> 
+   
+    
+<!--  Footer   -->
+    <div class="container" id="footer">
+        <ul>
+            <li>
+                <a href="mailto:livia.jakob@geo-blog.com">
+                    <img src="theme/img/email.png" style="height:28px" class="icon">
+                </a> 
+            
+            </li>   
+            <li><b>|</b></li>
+            <li>                
+                <a target="_blank" href="https://www.linkedin.com/in/livia-jakob/">
+                    <img src="theme/img/linkedin.png" style="height:25px" class="icon">
+                </a> 
+            </li>
+            <li><b>|</b></li>
+                <li>
+                <a target="_blank" href="https://github.com/liviajakob/">
+                    <img src="theme/img/github.png" style="height:28px" class="icon">
+                </a>
+            </li>
+        </ul>
+    </div>
+    
+<!--  End Footer  -->
+    
+</body>
+</html>
