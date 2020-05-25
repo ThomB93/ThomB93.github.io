@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }}{% endblock %}
+
+{% block content %}
+<div class="row">
+ <div class="col-md-12">
+     <h1><strong>{{page.title}} | </strong>{{ AUTHOR }}</h1>
+     
+     <br>
+     <br>
+     
+     
+{%if page.icons == "yes"%}
+     
+     <div class="content-small">
+         
+         <hr style="border-width: thin; border-color: black">
+     
+            <p><a href="mailto:livia.jakob@geo-blog.com" class="icons">
+                <img src="theme/img/email.png" style="height:28px" class="icon"></a>
+             <strong> | Email -- </strong> <a target="_blank" href="mailto:livia.jakob@geo-blog.com">livia.jakob@geo-blog.com</a></p>
+     
+              <p><a target="_blank" href="https://www.linkedin.com/in/livia-jakob/" class="icons">
+                <img src="theme/img/linkedin.png" style="height:27.5px" class="icon"></a>
+             <strong> | Linkedin -- </strong> <a target="_blank" href="https://www.linkedin.com/in/livia-jakob/">www.linkedin.com/in/livia-jakob</a></p>
+         
+            <p><a target="_blank" href="https://github.com/liviajakob/" class="icons">
+                <img src="theme/img/github.png" style="height:28px" class="icon"></a>
+             <strong> | GitHub -- </strong> <a target="_blank" href="https://github.com/liviajakob/">www.github.com/liviajakob</a></p>       
+         <hr style="border-width: thin; border-color: black">    
+     </div>
+{% endif %}
+     
+     <div class= "content">
+         <p>{{ page.content }}</p>
+     </div>
+     
+ </div>
+</div>
+{% endblock %}
