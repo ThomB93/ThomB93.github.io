@@ -2,6 +2,7 @@
 
 To add new changes to the site, execute the following commands in order:
 
+pelican content
 git add .
 git commit -m "message"
 git push origin master
