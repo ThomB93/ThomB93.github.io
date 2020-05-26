@@ -33,6 +33,10 @@ TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
+EXTRA_PATH_METADATA = {
+    'img/favicon.ico': {'path': 'favicon.ico'}
+}
+
 # Blogroll
 LINKS = (('Pelican', 'http://getpelican.com/'),
          ('Python.org', 'http://python.org/'),
