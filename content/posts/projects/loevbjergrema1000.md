@@ -6,6 +6,7 @@ Slug: loevbjerg-rema-1000-sommerhusudlejning
 Author: Thomas Brunbjerg
 Summary: Holiday Cottage Rental site made using Umbraco CMS
 featured_image: img/lr1000_01.png
+project: yes
 
 ## **Project Overview |** Holiday Cottage Rental Site
 

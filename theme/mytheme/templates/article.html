@@ -5,7 +5,11 @@
 {% block content %}
 <div class="row">
  <div class="col-md-12">
-     <h1><strong>Project Details | </strong>{{ article.title }}</h1>
+    {% if article.report %}
+        <h1><strong>Article | </strong>{{ article.title }}</h1>
+    {% else %}
+        <h1><strong>Project Details | </strong>{{ article.title }}</h1>
+    {% endif %}
      <br>
      <h4 style="padding-left: 7%; padding-right: 7%;">{{article.summary}}</h4>
      
@@ -21,7 +25,7 @@
          
          <p>
                 <img src="theme/img/skills2.png" style="height:25px" class="icon">             
-             <strong> | Skills Used -- </strong>
+             <strong> | Tags -- </strong>
     {% for tag in article.tags %}
         <a href="{{ SITEURL }}/{{tag.slug}}.html">{{ tag }}</a> | 
     {% endfor %}
@@ -38,11 +42,7 @@
                 <strong> | Link to Project -- </strong> <a target="_blank" href="{{article.projectlink}}">{{article.projectlink}}</a></p>
          {% endif %}
          
-        {% if  article.report %}
-                <p><a target="_blank" href="{{article.report}}" class="icons">
-                    <img src="theme/img/report2.png" style="height:26px" class="icon"></a>
-                <strong>| Full Report / Paper -- </strong> <a target="_blank" href="{{article.report}}">Click here</a></p>
-         {% endif %}
+        
          
          
             {% if  article.repository %}

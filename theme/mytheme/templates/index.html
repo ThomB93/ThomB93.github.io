@@ -18,13 +18,13 @@
     
     <div class="row">
   {% for article in articles %}
-    {% if  loop.index0 is divisibleby 3 %}
+    {% if  loop.index0 is divisibleby 3%}
     </div>
         <div class="row">
     {% endif %}
         
     <div class="col-md-4">
-        {% if  article.featured_image %}
+        {% if  article.featured_image and article.project %}
         <div class="containertumb">
             <a href="{{article.slug}}.html">
                 <img src="{{ article.featured_image }}" style="width:100%" class="tumb">
@@ -57,11 +57,9 @@
     </div>
     {% endif %}  
 -->
-            
-            
+ 
     </div>
-        
-        
+
   {% else %}
    No projects yet!
   {% endfor %}

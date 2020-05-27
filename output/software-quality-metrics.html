@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <title>Software Quality & Metrics</title>
+ <!-- Latest compiled and minified Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!--link rel="stylesheet" href="theme/css/rdark.css" /-->
+<link rel="stylesheet" type="text/css" href="theme/css/main.css" />
+
+    <!-- Using MathJax, with the delimiters $ -->
+<!-- Conflict with pygments for the .mo and .mi -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+  "HTML-CSS": {
+  styles: {
+  ".MathJax .mo, .MathJax .mi": {color: "black ! important"}}
+  },
+  tex2jax: {inlineMath: [['$','$'], ['\\\\(','\\\\)']],processEscapes: true}
+  });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+
+</head>
+<body>
+    
+    <title></title>
+    
+<nav >
+  <div class="container" id="navbar">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="index.html">Portfolio</a>
+    </div>
+    <ul class="nav navbar-nav">
+            <li><b>|</b></li>
+            <li>
+                <a href="./articles.html">Articles</a></li>
+            <li><b>|</b></li>
+            <li>
+                <a href="./cv.html">CV</a></li>
+            <li><b>|</b></li>
+            <li>
+                <a href="./hobby.html">Hobby</a></li>
+    </ul>
+  </div>
+</nav>
+    
+    
+<!-- Main Content -->
+ <div class="container" id="main">
+<div class="row">
+ <div class="col-md-12">
+        <h1><strong>Article | </strong>Software Quality & Metrics</h1>
+     <br>
+     <h4 style="padding-left: 7%; padding-right: 7%;"></h4>
+     
+     
+     <div class="content">
+         <hr style="border-width: thin; border-color: black">
+         
+        <p>
+            <img src="theme/img/date3.png" style="height:25px" class="icon">  
+            
+            <strong> | Project Year -- </strong> 2017</p>
+         
+         
+         <p>
+                <img src="theme/img/skills2.png" style="height:25px" class="icon">             
+             <strong> | Tags -- </strong>
+        <a href="./software.html">software</a> | 
+        <a href="./architecture.html">architecture</a> | 
+        <a href="./metrics.html">metrics</a> | 
+        <a href="./quality.html">quality</a> | 
+        <a href="./ishiakwa-diagram.html">ishiakwa diagram</a> | 
+    </p>
+     
+
+
+    
+
+
+         
+        
+         
+         
+         
+         <hr style="border-width: thin; border-color: black; padding-bottom: 4%;">
+
+         <p><blockquote>
+<p><em>You can't control what you can't measure.</em> - Tom DeMarco</p>
+</blockquote>
+<p>Bugs and system errors are most often unavoidable in any large software project and sometimes they might even go unnoticed and ship with the product. To this end people have created a way to discover these bugs before this happens and figure out how well to prepare for the future. I'll refer to any error in the code as a "defect".</p>
+<p>When finding and removing a defect, several things need to be understood and documented, before the defect can be fixed.</p>
+<p>The Discoverer is whoever found the defect (a programmer, customer etc.) It's best that it is the programmers themselves who discover the bugs and not the customers, since that means the defect went past code reviews.</p>
+<p>The Severity is a number (i.e. 1-10) that is assigned to the defect, or it could be a category, like low, medium, high. It tells how severe the defect is for the project.</p>
+<p>Time Created tells when the defect was discovered. Was it during high level design, low level design, maintenance?  Defects discovered the earliest are the most important.</p>
+<p>Age at Fix is a number telling the time that went from when the defect was discovered until it was fixed. Next time focus on the defects that went unfixed for the longest time.</p>
+<p>Finally you can assign a defect a certain task type. Examples of task types are tools, security, database, user interface, hardware, etc.</p>
+<p>For each defect you should ask yourself 3 questions:</p>
+<div class="highlight"><pre><span></span><code><span class="err">1. How could you have avoided the defect in the first place?</span>
+<span class="err">2. How could you have detected the defect sooner?</span>
+<span class="err">3. For customer-discovered defects, how could you have found the defect before the customers did?</span>
+</code></pre></div>
+
+
+<p>Another way to better categorize a defect into a task type, or several, is by using <a href="https://en.wikipedia.org/wiki/Ishikawa_diagram">Ishikawa Diagrams</a> that can track a defect all the way back to its origin point. Perhaps the defect is present in more than one task type. The diagrams helps you find the root cause of the defect.
+<a href="./img/article/ishikawa.jpg"><img alt="small" src="./img/article/ishikawa.jpg"></a>
+After discovering and fixing a few defects you might want to get a more overall picture on how well your project performs. This is where metrics get into the picture. These are more quantitative measurement techniques that are equally as useful.</p>
+<p>An <strong>Attribute</strong> is a thing in your project that is measurable, like lines of code, number of comments.</p>
+<p>A <strong>Metric</strong> is a value that you can use to study a part of the your project. The are often a calculated value from your attributes and provides valuable information.</p>
+<p>An <strong>Indicator</strong> is a sort of metric that tells something about the projects future, instead of how it is doing right now.</p>
+<p>You can measure anything you can put a number on, but there are certain attributes that are easier to measure than others. An attribute should be simple, measurable, relevant, objective and easy to obtain. When you have measured your attributes you can use them to form metrics that can be used to assess the quality, reduce bugs, improve maintenance etc.Indicators are often used as feedback to the developers to make them change how they work.</p>
+<p>Metrics can be grouped into 2 categories: Process metrics and project metrics.</p>
+<p><strong>Process Metrics</strong> are used to measure the development process to help you better fine tune your development workflow. An example would be comments per lines of code, which says something about how well the code is documented.</p>
+<p><strong>Project Metrics</strong> are used to measure and track the project and is used to change the overall strategy for the project. You can use them to set future goals and predict future events.</p>
+<p>The main problem with metrics is that they only add value to the current project, but there is a way to compare how 2 different projects are doing, using Size Normalization.</p>
+<p>Suppose you measured lines of code, number of developers, time in months, number of bugs and total effort for 2 projects.
+<a href="./img/article/metric_table_1.png"><img alt="small" src="./img/article/metric_table_1.png"></a>
+How do we see which project performs better? We use a series of calculations to help us.
+<a href="./img/article/metric_table_2.png"><img alt="small" src="./img/article/metric_table_2.png"></a>
+These calculations show that project Fracas was more productive in terms of lines of code per effort, but that project Ruction had less buggy code.Only do calculations that makes relevant sense and then conclude something based on that. In this way we can compare several projects to each other and perhaps decide which ones to keep and which ones to disband.</p>
+<p>Finding and fixing bugs can be tough, so we use metrics to help us do just that. There are many more methods available for measuring all aspects of a project in high detail.</p></p>
+     </div>
+ </div>
+</div>
+</div>
+<!-- End of Main Content --> 
+   
+    
+<!--  Footer   -->
+    <div class="container" id="footer">
+        <ul>
+            <li>
+                <a href="mailto:thomb@hotmail.dk">
+                    <img src="theme/img/email.png" style="height:30px" class="icon">
+                </a> 
+            
+            </li>   
+            <li><b>|</b></li>
+            <li>                
+                <a target="_blank" href="https://www.linkedin.com/in/thomas-brunbjerg-8a6ba8137/">
+                    <img src="theme/img/linkedin.jpg" style="height:30px" class="icon">
+                </a> 
+            </li>
+            <li><b>|</b></li>
+                <li>
+                <a target="_blank" href="https://github.com/ThomB93">
+                    <img src="theme/img/github.png" style="height:30px" class="icon">
+                </a>
+            </li>
+            <li><b>|</b></li>
+                <li>
+                <a target="_blank" href="https://www.youtube.com/channel/UC3rc5zj8sLo_HiPXCxb0y4g">
+                    <img src="theme/img/youtube.png" style="height:30px" class="icon">
+                </a>
+            </li>
+        </ul>
+    </div>
+    
+<!--  End Footer  -->
+    
+</body>
+</html>

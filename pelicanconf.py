@@ -24,7 +24,7 @@ GITHUB_URL = 'https://github.com/ThomB93'
 TIMEZONE = 'Europe/Paris'
 
 DEFAULT_LANG = 'en'
-SUMMARY_MAX_LENGTH = 20
+SUMMARY_MAX_LENGTH = 30
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None

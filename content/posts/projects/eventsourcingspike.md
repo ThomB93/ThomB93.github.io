@@ -7,3 +7,4 @@ Author: Thomas Brunbjerg
 Summary: Spike for testing a .NET implementation of Event Sourcing and EventStore using DDD architecture
 featured_image: img/eventsourcingspike_01.png
 repository: https://github.com/ThomB93/EventSourcingSpike
+project: yes
