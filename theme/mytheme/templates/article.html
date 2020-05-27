@@ -19,10 +19,11 @@
          
         <p>
             <img src="theme/img/date3.png" style="height:25px" class="icon">  
-            
+            {% if article.report %}
+            <strong> | Article Year -- </strong> {{ article.date|strftime('%Y') }}</p>
+            {% else %}
             <strong> | Project Year -- </strong> {{ article.date|strftime('%Y') }}</p>
-         
-         
+            {% endif %}
          <p>
                 <img src="theme/img/skills2.png" style="height:25px" class="icon">             
              <strong> | Tags -- </strong>

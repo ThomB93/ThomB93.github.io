@@ -216,7 +216,7 @@ pre {
 
 .tumb {
   opacity: 0.5;
-  display: block;
+  display: inline;
   width: 100%;
   transition: .5s ease;
   backface-visibility: hidden;

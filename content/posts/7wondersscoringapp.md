@@ -1,13 +1,12 @@
 Title: 7 Wonders Score Tracker
 Date: 2017-10-31
-Category: Web Development
+Category: Project
 Tags: webprogramming, javascript, angular, bootstrap
 Slug: 7-wonders-scoring-app
 Author: Thomas Brunbjerg
 Summary: Score Tracker for the board game '7 Wonders' developed using AngularJS
 featured_image: img/7wonders_01.png
 repository: https://github.com/ThomB93/ThomB93.sevenWondersScoringApp
-project: yes
 
 [The app is hosted on Github pages](https://thomb93.github.io/ThomB93.sevenWondersScoringApp/)
 

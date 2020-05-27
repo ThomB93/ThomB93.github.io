@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <title>Rapid Agile Development</title>
+ <!-- Latest compiled and minified Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!--link rel="stylesheet" href="theme/css/rdark.css" /-->
+<link rel="stylesheet" type="text/css" href="theme/css/main.css" />
+
+    <!-- Using MathJax, with the delimiters $ -->
+<!-- Conflict with pygments for the .mo and .mi -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+  "HTML-CSS": {
+  styles: {
+  ".MathJax .mo, .MathJax .mi": {color: "black ! important"}}
+  },
+  tex2jax: {inlineMath: [['$','$'], ['\\\\(','\\\\)']],processEscapes: true}
+  });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+
+</head>
+<body>
+    
+    <title></title>
+    
+<nav >
+  <div class="container" id="navbar">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="index.html">Portfolio</a>
+    </div>
+    <ul class="nav navbar-nav">
+            <li><b>|</b></li>
+            <li>
+                <a href="./articles.html">Articles</a></li>
+            <li><b>|</b></li>
+            <li>
+                <a href="./cv.html">CV</a></li>
+            <li><b>|</b></li>
+            <li>
+                <a href="./hobby.html">Hobby</a></li>
+    </ul>
+  </div>
+</nav>
+    
+    
+<!-- Main Content -->
+ <div class="container" id="main">
+<div class="row">
+ <div class="col-md-12">
+        <h1><strong>Article | </strong>Rapid Agile Development</h1>
+     <br>
+     <h4 style="padding-left: 7%; padding-right: 7%;"><p>Describes the RAD modelby James Martin and how you might apply it to an agile project.</p></h4>
+     
+     
+     <div class="content">
+         <hr style="border-width: thin; border-color: black">
+         
+        <p>
+            <img src="theme/img/date3.png" style="height:25px" class="icon">  
+            <strong> | Article Year -- </strong> 2017</p>
+         <p>
+                <img src="theme/img/skills2.png" style="height:25px" class="icon">             
+             <strong> | Tags -- </strong>
+        <a href="./software.html">software</a> | 
+        <a href="./architecture.html">architecture</a> | 
+        <a href="./rad.html">rad</a> | 
+        <a href="./rapid.html">rapid</a> | 
+        <a href="./agile.html">agile</a> | 
+        <a href="./development.html">development</a> | 
+    </p>
+     
+
+
+    
+
+
+         
+        
+         
+         
+         
+         <hr style="border-width: thin; border-color: black; padding-bottom: 4%;">
+
+         <p><p>RAD models are basically agile models that focuses on getting software done as quickly as possible. Examples of these models are Scrum and XP (Extreme Programming), which are the most well known. The end goal for these models is to have the project done in a fast manner and delivered to the customer early. RAD is originally a model in and of itself, but new models have started incorporating features from this model into their, so we call these features RAD principles. You can learn more about the agile principles by reading the <a href="http://agilemanifesto.org/">Agile Manifesto</a>, which is generally regarded as the core principles in any agile development model.</p>
+<p>The original RAD model by James Martin looks like this.
+<a href="./img/article/rad_model.png"><img alt="small" src="./img/article/rad_model.png"></a>
+The requirements phase is done once and then the developers iterate over construction and user design until all requirements are met and the product can be delivered to the customer. The customers can give feedback and provide adjustments to the project in the user design phase, if the projects seems to go off track. Cutover means when the project is delivered to the user.</p>
+<p>Agile models are generally preferred over the traditional models, such as the Waterfall model, since they have been proved to minimize bugs and meet more requirements. Projects following these models are able to adapt to change, whether it be internal or external and thereby change how the project is laid out during development. With these kinds of models you should minimize the amount of documentation, since whatever you wrote in week 1 might not by applicable in week 20. You should avoid too much planning early on, since projects are split into short time-boxed iterations, that can last for as little as 1 week. You can’t plan several months ahead, since your might will most certainly change.</p>
+<p>Meetings should be kept as short and efficient as possible and the developers and anyone else on the team should be trusted with what they are doing and allowed to work for themselves without too many disturbances. <strong>Self-organizing teams</strong> is an important aspect in many agile models, whereby the developers work without being micro managed by a manager all the time. They are trusted to deliver a working product, which gives them a sense of responsibility and ownership of their code. Likewise the customer should be ‘kept on a leash’ as their input is highly needed to steer the project in the right direction. One representative is chosen to communicate with the customer to then communicate information to the developers, so as to not waste the developer’s time with daily customer meetings.</p>
+<p>Each iteration, however short it might be, is a small project in and of itself. All the phases in a standard software project should be present, which also means that the developers should be knowledgeable about requirements gathering, high level design and so on and not just their own area of expertise. This means that the developers need to be higher skilled, but will be able to give more input to the overall project. A clear deadline for each iteration is important, so that developers can work towards reaching a goal. In this way you can also measure how well a project is performing along the way, by using things like a <a href="https://en.wikipedia.org/wiki/Burn_down_chart">Burndown Chart</a> to see how well the project is on track.</p>
+<p>Delivering value to the customer early is important, but you should refrain from delivering every small release, if only 1 or 2 features were added. This will only bog down and perhaps confuse the customer, so keep your customer releases separated by a few test releases. Companies often use numbering schemes to show how far a project has come since last time.</p>
+<p><strong>Version 1.2.3.4 means major version 1, minor version 2, build 3, and revision 4.</strong></p>
+<p>With every major release you update the first number. After an iteration you could update the minor release number and you could update the build number after maybe every week, while test builds update the revision number. This gives a clear indication to the customer how far the project has went.</p>
+<p>Having quality and tested code throughout the project is equally as important, since you should be able to deliver a working piece of the product to the customer after each iteration. Having buggy code in these releases sends a  bad signal to the customer. To achieve better quality code you should constantly perform tests, even very early in the project. While it is important to finish the product as fast as possible, you should not go faster than what your developers are capable of. This also means that you reduce the time spent fixing bugs later in the project.</p>
+<p>Good communication between team members is essential for agile projects to work efficiently. Developers should not be afraid to ask for help if they get stuck and any major problems should be discussed in the meetings by all team members. Give everyone a voice and trust each other with what they do. People in teams are generally good at dividing the work between themselves, so you should trust them to do so. Let the developers do what they do best, so you minimize the time needed for training. Good communication between the business people and the developers is also important, as they are both equally depending on one another.</p>
+<p>There are many more concept and principles present in the RAD models and they each use the agile principles to different degrees, sometimes to the extreme. You can read more about them on the Agile Manifesto site.</p></p>
+     </div>
+ </div>
+</div>
+</div>
+<!-- End of Main Content --> 
+   
+    
+<!--  Footer   -->
+    <div class="container" id="footer">
+        <ul>
+            <li>
+                <a href="mailto:thomb@hotmail.dk">
+                    <img src="theme/img/email.png" style="height:30px" class="icon">
+                </a> 
+            
+            </li>   
+            <li><b>|</b></li>
+            <li>                
+                <a target="_blank" href="https://www.linkedin.com/in/thomas-brunbjerg-8a6ba8137/">
+                    <img src="theme/img/linkedin.jpg" style="height:30px" class="icon">
+                </a> 
+            </li>
+            <li><b>|</b></li>
+                <li>
+                <a target="_blank" href="https://github.com/ThomB93">
+                    <img src="theme/img/github.png" style="height:30px" class="icon">
+                </a>
+            </li>
+            <li><b>|</b></li>
+                <li>
+                <a target="_blank" href="https://www.youtube.com/channel/UC3rc5zj8sLo_HiPXCxb0y4g">
+                    <img src="theme/img/youtube.png" style="height:30px" class="icon">
+                </a>
+            </li>
+        </ul>
+    </div>
+    
+<!--  End Footer  -->
+    
+</body>
+</html>

@@ -16,6 +16,9 @@ PAGE_PATHS = ['pages']
 PAGE_URL = '{slug}.html'
 PAGE_SAVE_AS = '{slug}.html'
 
+ARTICLE_PATHS = ['posts', 'articles', 'hobby']
+ARTICLE_EXCLUDES = ['articles', 'hobby']
+
 TAG_SAVE_AS = '{slug}.html'
 TAG_URL = '{slug}.html'
 

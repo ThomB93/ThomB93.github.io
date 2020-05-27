@@ -1,12 +1,11 @@
 Title: Loevbjerg Rema 1000 Sommerhusudlejning
 Date: 2017-10-31
-Category: Web Development
+Category: Project
 Tags: object-oriented programming, webprogramming, sql, umbraco, aspnet, c#, javascript, angular, cms
 Slug: loevbjerg-rema-1000-sommerhusudlejning
 Author: Thomas Brunbjerg
 Summary: Holiday Cottage Rental site made using Umbraco CMS
 featured_image: img/lr1000_01.png
-project: yes
 
 ## **Project Overview |** Holiday Cottage Rental Site
 

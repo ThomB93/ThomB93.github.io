@@ -1,12 +1,11 @@
 Title: Mountain Bike Exercise App
 Date: 2020-05-25
-Category: Mobile Development
+Category: Project
 Tags: object-oriented programming, c#, xaml, xamarin, api, azure devops, django, python
 Slug: mountain-bike-exercise-app
 Author: Thomas Brunbjerg
 Summary: Mountain Bike Exercise app for Android made using Xamarin Forms and Django REST Framework
 featured_image: img/mtbxamarin_01.png
-project: yes
 
 [![tiny]({filename}/img/mtbxamarin_02.jpg)]({filename}/img/mtbxamarin_02.jpg)
 This android app served as the first semester project in my Mobile Development class at University College Lillebaelt in 2020. It tracks various exercises made specifically for people wanting to better their mountain biking training. Users can open a session to be shown a list of exercises. Selecting a single exercise will display a detail page showing the required sets and repetitions needed to complete the exercise. To track their progress, a progress bar will update, while a line chart displays the recent activity in number of completed exercises. 

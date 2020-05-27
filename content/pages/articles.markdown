@@ -5,12 +5,14 @@ Summary: My Articles
 sortorder: 10
 icons: no
 
- **Software Architecture Articles:**
+ **Software Architecture:**
 
 * [Software Quality & Metrics]({filename}/articles/quality_metrics.md)
 * [Crystal Methodologies]({filename}/articles/crystal_methodologies.md)
+* [Project Estimation]({filename}/articles/estimating_projects.md)
+* [RAD (Rapid Agile Development)]({filename}/articles/rapid_agile_development.md)
 
- **Software Development Articles:**
+ **Software Development:**
 
 **Guides:**
 

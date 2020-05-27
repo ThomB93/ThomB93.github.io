@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <title>Estimating Software Projects</title>
+ <!-- Latest compiled and minified Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!--link rel="stylesheet" href="theme/css/rdark.css" /-->
+<link rel="stylesheet" type="text/css" href="theme/css/main.css" />
+
+    <!-- Using MathJax, with the delimiters $ -->
+<!-- Conflict with pygments for the .mo and .mi -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+  "HTML-CSS": {
+  styles: {
+  ".MathJax .mo, .MathJax .mi": {color: "black ! important"}}
+  },
+  tex2jax: {inlineMath: [['$','$'], ['\\\\(','\\\\)']],processEscapes: true}
+  });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+
+</head>
+<body>
+    
+    <title></title>
+    
+<nav >
+  <div class="container" id="navbar">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="index.html">Portfolio</a>
+    </div>
+    <ul class="nav navbar-nav">
+            <li><b>|</b></li>
+            <li>
+                <a href="./articles.html">Articles</a></li>
+            <li><b>|</b></li>
+            <li>
+                <a href="./cv.html">CV</a></li>
+            <li><b>|</b></li>
+            <li>
+                <a href="./hobby.html">Hobby</a></li>
+    </ul>
+  </div>
+</nav>
+    
+    
+<!-- Main Content -->
+ <div class="container" id="main">
+<div class="row">
+ <div class="col-md-12">
+        <h1><strong>Article | </strong>Estimating Software Projects</h1>
+     <br>
+     <h4 style="padding-left: 7%; padding-right: 7%;"><p>This article describes various ways in which you can estimate your software projects.</p></h4>
+     
+     
+     <div class="content">
+         <hr style="border-width: thin; border-color: black">
+         
+        <p>
+            <img src="theme/img/date3.png" style="height:25px" class="icon">  
+            <strong> | Article Year -- </strong> 2017</p>
+         <p>
+                <img src="theme/img/skills2.png" style="height:25px" class="icon">             
+             <strong> | Tags -- </strong>
+        <a href="./software.html">software</a> | 
+        <a href="./architecture.html">architecture</a> | 
+        <a href="./estimation.html">estimation</a> | 
+        <a href="./projects.html">projects</a> | 
+    </p>
+     
+
+
+    
+
+
+         
+        
+         
+         
+         
+         <hr style="border-width: thin; border-color: black; padding-bottom: 4%;">
+
+         <p><p><a href="{filename}/img/article//estimating_cover.jpg"><img alt="tiny" src="./img/article/estimating_cover.jpg"></a>
+Estimating how long a certain software project will take, or how many resources are needed to complete it is hard. Nevertheless it is necessary to do so, since people outside of the project wants to know when the the product can be delivered, at least to a certain degree of precision. There are many ways to estimate varies attributes in a project to hopefully reach some sort of conclusion that gives a more or less precise estimate. Not all projects are the same, so different techniques of estimating are needed. Software projects are inherently difficult to estimate, since so much of the estimation relies on the people themselves, and not cold numbers. How long would it take to design a relational database for this project? Hard to say. To help with this you could looks at previous projects where this task had to be done and look at how long that took, or split the task into sub-tasks and try to estimate each of them. It’s no surprise that release dates for video games are sometimes moved 8 months or even a year into the future, since there is so much risk involved in estimating these kinds of projects. As long as people are the ones who create software, there will always be some kind of uncertainty involved.</p>
+<p>I will go through some of the estimation techniques here and describe how they work and give some examples as to how they can be used in a project. There are 2 categories of estimation techniques, core techniques and helper techniques. Estimation is done using core techniques in conjunction with helper techniques, to give a better result. I’ll describe some of the helper techniques first.</p>
+<p><strong>Uncertainty Estimation</strong> tries to give a number on how much uncertainty is involved in the final estimation. Say your project is estimated to take 10 months, with an uncertainty percentage of (+)(-)20%. This means that there is a high chance that the project could take 8 or 12 months instead. This is a good indicator on how certain you are on your estimation.</p>
+<p><strong>Degradation and Counting</strong>  tries to split each task that needs estimation into sub-tasks to then give a more precise number. You can combine uncertainty estimation with this to give each sub-task an uncertainty of their own. In this way you can minimize the overall uncertainty of the task and thereby the project by having more inputs. This is also called successive calculation.</p>
+<p>Before any real estimation can be done we need to use the core techniques which i will describe here.</p>
+<p><strong>Analogy</strong> is the simplest form of estimation. You simple look at the numbers from a previous project that is similar to the one you are estimating on and from there, try to reach an estimation. No project is completely similar, so there will always be some risk involved, but depending on how well the previous project was documented, you could have access to a lot of information. This method could be done with knowledge of just a single project.</p>
+<p><strong>Factor Assessment</strong>  is a more complex form of estimation, that can use many different techniques of calculation to reach a precise number. You usually need information from several projects to use this method and there has to be calculable information in your project, such as budget, team size, working hours etc.</p>
+<p><strong>COCOMO</strong> is one of these techniques of factor assessment to estimate a software project. There are 2 different types of formula that are important using this method as shown below:</p>
+<p><a href="{filename}/img/article//estimate_formula.png"><img alt="small" src="./img/article/estimate_formula.png"></a></p>
+<p>The first of these formula describes an estimation of the number on man months (MM). KDSI is lines of code * 1000 and the the rest of the numbers are factors that gives a number on how difficult a certain task is. If it is below 1 it means it is easier, above 1 means it is harder. These numbers are found using tables of numbers from previous projects. TDEV is total number of development months.</p>
+<p>You shouldn’t estimate only once during the project lifetime, but always try to refine your estimations as your gather new knowledge. If a task needs to be done more than once, use your estimation on the first time the task was done to estimate the rest. Hopefully towards the end of the project you will have a precise number on how long and how much is needed to complete the project. If you don’t have much data yourself, use the many collections of data available in your field as a starting point.</p></p>
+     </div>
+ </div>
+</div>
+</div>
+<!-- End of Main Content --> 
+   
+    
+<!--  Footer   -->
+    <div class="container" id="footer">
+        <ul>
+            <li>
+                <a href="mailto:thomb@hotmail.dk">
+                    <img src="theme/img/email.png" style="height:30px" class="icon">
+                </a> 
+            
+            </li>   
+            <li><b>|</b></li>
+            <li>                
+                <a target="_blank" href="https://www.linkedin.com/in/thomas-brunbjerg-8a6ba8137/">
+                    <img src="theme/img/linkedin.jpg" style="height:30px" class="icon">
+                </a> 
+            </li>
+            <li><b>|</b></li>
+                <li>
+                <a target="_blank" href="https://github.com/ThomB93">
+                    <img src="theme/img/github.png" style="height:30px" class="icon">
+                </a>
+            </li>
+            <li><b>|</b></li>
+                <li>
+                <a target="_blank" href="https://www.youtube.com/channel/UC3rc5zj8sLo_HiPXCxb0y4g">
+                    <img src="theme/img/youtube.png" style="height:30px" class="icon">
+                </a>
+            </li>
+        </ul>
+    </div>
+    
+<!--  End Footer  -->
+    
+</body>
+</html>
