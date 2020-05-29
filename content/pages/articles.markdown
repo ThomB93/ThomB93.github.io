@@ -11,6 +11,7 @@ icons: no
 * [Crystal Methodologies]({filename}/articles/crystal_methodologies.md)
 * [Project Estimation]({filename}/articles/estimating_projects.md)
 * [RAD (Rapid Agile Development)]({filename}/articles/rapid_agile_development.md)
+* [CAP Theorem]({filename}/articles/cap_theorem.md)
 
  **Software Development:**
 
