@@ -86,7 +86,33 @@
          
          <hr style="border-width: thin; border-color: black; padding-bottom: 4%;">
 
-         <p></p>
+         <p><p>This bot was made using the unofficial .NET wrapper for the Discord API. More information about the wrapper can be found on the <a href="https://github.com/discord-net/Discord.Net">Github repo</a></p>
+<p>In its simplest form, the bot makes use of the command service provided by the Discord Client to accept requests from users. All messages that match the specified prefix + alias will execute some function that the bot provides. As an example, here is a command that prints out a random trivia question to the user:</p>
+<div class="highlight"><pre><span></span><code><span class="n">commands</span><span class="p">.</span><span class="n">CreateCommand</span><span class="p">(</span><span class="s">&quot;trivia&quot;</span><span class="p">)</span>
+    <span class="p">.</span><span class="n">Alias</span><span class="p">(</span><span class="k">new</span> <span class="kt">string</span><span class="p">[]</span> <span class="p">{</span> <span class="s">&quot;question&quot;</span><span class="p">})</span> 
+    <span class="p">.</span><span class="n">Description</span><span class="p">(</span><span class="s">&quot;Provides a random question. !trivia [categoryId] [value]&quot;</span><span class="p">)</span>
+    <span class="p">.</span><span class="n">Parameter</span><span class="p">(</span><span class="s">&quot;categoryId&quot;</span><span class="p">,</span> <span class="n">ParameterType</span><span class="p">.</span><span class="n">Required</span><span class="p">)</span>
+    <span class="p">.</span><span class="n">Parameter</span><span class="p">(</span><span class="s">&quot;value&quot;</span><span class="p">,</span> <span class="n">ParameterType</span><span class="p">.</span><span class="n">Required</span><span class="p">)</span> 
+    <span class="p">.</span><span class="n">Do</span><span class="p">(</span><span class="k">async</span> <span class="n">e</span> <span class="p">=&gt;</span>
+    <span class="p">{</span>
+        <span class="n">JsonQuestion</span> <span class="n">question</span> <span class="p">=</span> <span class="k">new</span> <span class="n">JsonQuestion</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">GetArg</span><span class="p">(</span><span class="m">0</span><span class="p">),</span> <span class="n">Convert</span><span class="p">.</span><span class="n">ToInt32</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">GetArg</span><span class="p">(</span><span class="m">1</span><span class="p">)));</span>
+        <span class="n">DataContainer</span> <span class="n">container</span> <span class="p">=</span> <span class="n">question</span><span class="p">.</span><span class="n">GetQuestions</span><span class="p">();</span>
+        <span class="kt">int</span> <span class="n">listLength</span> <span class="p">=</span> <span class="n">container</span><span class="p">.</span><span class="n">Questions</span><span class="p">.</span><span class="n">Count</span><span class="p">;</span>
+        <span class="n">Random</span> <span class="n">r</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Random</span><span class="p">();</span>
+        <span class="kt">int</span> <span class="n">rand</span> <span class="p">=</span> <span class="n">r</span><span class="p">.</span><span class="n">Next</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="n">listLength</span><span class="p">);</span> 
+        <span class="k">await</span> <span class="n">e</span><span class="p">.</span><span class="n">Channel</span><span class="p">.</span><span class="n">SendMessage</span><span class="p">(</span><span class="n">container</span><span class="p">.</span><span class="n">Questions</span><span class="p">[</span><span class="n">rand</span><span class="p">].</span><span class="n">question</span><span class="p">);</span>
+
+        <span class="n">discord</span><span class="p">.</span><span class="n">MessageReceived</span> <span class="p">+=</span> <span class="k">async</span> <span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">f</span><span class="p">.</span><span class="n">Message</span><span class="p">.</span><span class="n">Text</span> <span class="p">==</span> <span class="n">container</span><span class="p">.</span><span class="n">Questions</span><span class="p">[</span><span class="n">rand</span><span class="p">].</span><span class="n">answer</span><span class="p">)</span> 
+                <span class="k">await</span> <span class="n">f</span><span class="p">.</span><span class="n">Channel</span><span class="p">.</span><span class="n">SendMessage</span><span class="p">(</span><span class="s">&quot;Congratulations &quot;</span> <span class="p">+</span> <span class="n">f</span><span class="p">.</span><span class="n">Message</span><span class="p">.</span><span class="n">User</span> <span class="p">+</span> <span class="s">&quot;!&quot;</span><span class="p">);</span>
+        <span class="p">};</span>
+    <span class="p">});</span>
+</code></pre></div>
+
+
+<p>The name of the command is 'trivia', while the alias is 'question'. For this bot, the prefix is set to the character '!'. In addition, the user can input some parameters to the command, such as a category ID and a value. When the users enters e.g. '!question Food 200' into the discord chat, the method will execute. A random question will be fetched and displayed and then the method hooks into the MessageReceived event handler, which is triggered whenever a user enter a message. A conditional statement checks whether the message was the correct answer to the question. If true, a message congratulating the user is shown. 
+s
+New command can be added in the same manner as shown above. The full documentation for the .NET wrapper can be found <a href="https://docs.stillu.cc/guides/getting_started/first-bot.html">here</a>.</p></p>
      </div>
  </div>
 </div>
