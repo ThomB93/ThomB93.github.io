@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <title>Eventual Consistency</title>
+ <!-- Latest compiled and minified Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!--link rel="stylesheet" href="theme/css/rdark.css" /-->
+<link rel="stylesheet" type="text/css" href="theme/css/main.css" />
+
+    <!-- Using MathJax, with the delimiters $ -->
+<!-- Conflict with pygments for the .mo and .mi -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+  "HTML-CSS": {
+  styles: {
+  ".MathJax .mo, .MathJax .mi": {color: "black ! important"}}
+  },
+  tex2jax: {inlineMath: [['$','$'], ['\\\\(','\\\\)']],processEscapes: true}
+  });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+
+</head>
+<body>
+    
+    <title></title>
+    
+<nav >
+  <div class="container" id="navbar">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="index.html">Portfolio</a>
+    </div>
+    <ul class="nav navbar-nav">
+            <li><b>|</b></li>
+            <li>
+                <a href="./articles.html">Articles</a></li>
+            <li><b>|</b></li>
+            <li>
+                <a href="./cv.html">CV</a></li>
+            <li><b>|</b></li>
+            <li>
+                <a href="./hobby.html">Hobby</a></li>
+    </ul>
+  </div>
+</nav>
+    
+    
+<!-- Main Content -->
+ <div class="container" id="main">
+<div class="row">
+ <div class="col-md-12">
+        <h1><strong>Article | </strong>Eventual Consistency</h1>
+     <br>
+     <h4 style="padding-left: 7%; padding-right: 7%;"></h4>
+     
+     
+     <div class="content">
+         <hr style="border-width: thin; border-color: black">
+         
+        <p>
+            <img src="theme/img/date3.png" style="height:25px" class="icon">  
+            <strong> | Article Year -- </strong> 2020</p>
+         <p>
+                <img src="theme/img/skills2.png" style="height:25px" class="icon">             
+             <strong> | Tags -- </strong>
+        <a href="./eventual.html">eventual</a> | 
+        <a href="./consistency.html">consistency</a> | 
+        <a href="./database.html">database</a> | 
+        <a href="./distributed-systems.html">distributed systems</a> | 
+    </p>
+     
+
+
+    
+
+
+         
+        
+         
+         
+         
+         <hr style="border-width: thin; border-color: black; padding-bottom: 4%;">
+
+         <p><p>Eventual Consistency describes the notion that for a given distributed computing system, updates to one server will <em>eventually</em> be propagated to all servers in the network. A user may send a request to one server and receive a response, before the server has received the latest update, making the respones contain stale data. Many modern NoSQL systems can be said to be Eventually Consistent, as the need for constant availability trumphs the need for always consistent data. In addition, most of these systems are distribued across a multitude of servers, making the prospect of consistency difficult to achieve - see the <a href="./captheorem.html">CAP Theorem</a> as to why this is the case.</p>
+<p>In short, the concept can be summed up as follows:
+<em>"If no additional updates are made to a given data item, all reads to that item will eventually return the same value."</em></p>
+<p>It takes time to replicate data across servers, thus making some nodes in the network contain stale data for a short period of time. Shortening this 'time to update' will make the system appear more consistent, but it can never appear to have reached a fully consistent state. To achieve low-latency reads, as is the case in most modern systems, a trade-off between availabiltiy and consistency must be made. High volumes of internet traffic creates a huge load on databases, thus creating a need for scalability. </p>
+<p><a href="./img/article/eventualconsistency.png"><img alt="small" src="./img/article/eventualconsistency.png"></a></p>
+<p>Whether a system can tolerate stale data depends on the domain. Banking systems often cannot deal with data that is out of date. Your bank balance must always reflect its sum of transactions and in the correct order. These systems are said to be heavily consistent and are based on the ACID (Atomicity, Consistency, Isolation, Durability) principles. A good example of a system that does tolerate stale data is Google Docs. When multiple users are working on the same document, then it does not matter whether each user receives a fully consistent copy of the document being edited - eventually a convergence between the servers will have been reached and all users will have the same document in front of them.</p>
+<p>It might seem strange that many large distributed systems today can even function with weak consistency models. In fact these systems do <em>appear</em> strongly consisent most of the time and software architects can design these systems in such a way that inconsistencies are kept to a minimum, even when data is spread between hundreds or even thousands of servers. Of course having the system be 'always online' and instantly react to all user request, a better user experience is provided. In a competitive app market the user experience makes or breaks whether an app will be a success. Facebook timelines are also served to be eventually consistent. If not, some users would receive a message saying something like "Sorry, your timeline is not yet up to date. Please wait before posting until all updates have been received". Many users would just simply using the service at that point. </p>
+<p>While eventual consistency might seem like a yes/no guarantee, in reality it exists on a spectrum between weak and strong eventual consistency. In the weaker end you have a system that does not make any distinctions between writes and cannot ensure that data is ever in any consistenet state. In the stronger end you have systems that might guarantee that two or more servers who receives the same writes (unordered) will be in the same state. In addition you may want a stronger consistency in some parts of the system, while in other parts serving state data might be more tolerable.</p>
+<p><a href="./img/article/eventualcomic.jpg"><img alt="medium" src="./img/article/eventualcomic.jpg"></a></p></p>
+     </div>
+ </div>
+</div>
+</div>
+<!-- End of Main Content --> 
+   
+    
+<!--  Footer   -->
+    <div class="container" id="footer">
+        <ul>
+            <li>
+                <a href="mailto:thomb@hotmail.dk">
+                    <img src="theme/img/email.png" style="height:30px" class="icon">
+                </a> 
+            
+            </li>   
+            <li><b>|</b></li>
+            <li>                
+                <a target="_blank" href="https://www.linkedin.com/in/thomas-brunbjerg-8a6ba8137/">
+                    <img src="theme/img/linkedin.jpg" style="height:30px" class="icon">
+                </a> 
+            </li>
+            <li><b>|</b></li>
+                <li>
+                <a target="_blank" href="https://github.com/ThomB93">
+                    <img src="theme/img/github.png" style="height:30px" class="icon">
+                </a>
+            </li>
+            <li><b>|</b></li>
+                <li>
+                <a target="_blank" href="https://www.youtube.com/channel/UC3rc5zj8sLo_HiPXCxb0y4g">
+                    <img src="theme/img/youtube.png" style="height:30px" class="icon">
+                </a>
+            </li>
+        </ul>
+    </div>
+    
+<!--  End Footer  -->
+    
+</body>
+</html>

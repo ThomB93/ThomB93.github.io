@@ -5,6 +5,9 @@ Summary: My Hobbies
 sortorder: 10
 icons: no
 
-**Fictional Stories**
+**Writing**
 
 * [NaNoWriMo Entry 2019]({filename}/hobby/nanowrimo2019.md)
+
+**Piano**
+

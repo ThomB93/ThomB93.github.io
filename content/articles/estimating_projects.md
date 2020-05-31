@@ -7,7 +7,7 @@ Author: Thomas Brunbjerg
 Summary: This article describes various ways in which you can estimate your software projects.
 report: article
 
-[![tiny]({filename}/img/article/estimating_cover.jpg)]({filename}/img/article//estimating_cover.jpg)
+[![tiny]({static}/img/article/estimating_cover.jpg)]({static}/img/article/estimating_cover.jpg)
 Estimating how long a certain software project will take, or how many resources are needed to complete it is hard. Nevertheless it is necessary to do so, since people outside of the project wants to know when the the product can be delivered, at least to a certain degree of precision. There are many ways to estimate varies attributes in a project to hopefully reach some sort of conclusion that gives a more or less precise estimate. Not all projects are the same, so different techniques of estimating are needed. Software projects are inherently difficult to estimate, since so much of the estimation relies on the people themselves, and not cold numbers. How long would it take to design a relational database for this project? Hard to say. To help with this you could looks at previous projects where this task had to be done and look at how long that took, or split the task into sub-tasks and try to estimate each of them. It’s no surprise that release dates for video games are sometimes moved 8 months or even a year into the future, since there is so much risk involved in estimating these kinds of projects. As long as people are the ones who create software, there will always be some kind of uncertainty involved.
 
 I will go through some of the estimation techniques here and describe how they work and give some examples as to how they can be used in a project. There are 2 categories of estimation techniques, core techniques and helper techniques. Estimation is done using core techniques in conjunction with helper techniques, to give a better result. I’ll describe some of the helper techniques first.
@@ -24,7 +24,7 @@ Before any real estimation can be done we need to use the core techniques which 
 
 **COCOMO** is one of these techniques of factor assessment to estimate a software project. There are 2 different types of formula that are important using this method as shown below:
 
-[![small]({filename}/img/article/estimate_formula.png)]({filename}/img/article//estimate_formula.png)
+[![small]({static}/img/article/estimate_formula.png)]({static}/img/article/estimate_formula.png)
 
 The first of these formula describes an estimation of the number on man months (MM). KDSI is lines of code * 1000 and the the rest of the numbers are factors that gives a number on how difficult a certain task is. If it is below 1 it means it is easier, above 1 means it is harder. These numbers are found using tables of numbers from previous projects. TDEV is total number of development months.
 

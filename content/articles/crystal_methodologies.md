@@ -7,9 +7,9 @@ Author: Thomas Brunbjerg
 Summary: 
 report: article
 
-[![tiny]({filename}/img/article/crystal.jpg)]({filename}/img/article//crystal.jpg)
+[![tiny]({static}/img/article/crystal.jpg)]({static}/img/article/crystal.jpg)
 [Crystal](https://en.wikiversity.org/wiki/Crystal_Methods) is a set of methodologies created by Alistair Cockburn, to differentiate projects of different sizes, scope and criticality. It’s easy to understand that the software needed for a nuclear reactor is much more life-critical than say a video-game. In more serious projects,the amount of testing, formal procedures and documentation becomes increasingly higher. In an ideal world, no mistakes are made, but of course this is not feasible in any project. 
-[![small]({filename}/img/article/crystal_table.png)]({filename}/img/article//crystal_table.png)
+[![small]({static}/img/article/crystal_table.png)]({static}/img/article/crystal_table.png)
 Each color represents a certain project size in terms of the number of people working on it. So, if you are making a game and your team consists of 45 people, you would have a **C80** project. While there are certainly differences between the crystal types, some common methods persist - like having constant feedback from the customer, having many iterations, and giving each member at least 2 hours of uninterrupted work each day. You should always opt to pick the simplest of the crystals, but don't go too simple. This is a perfect occasion to make use of this famous quote:
 
 >*Everything should be made as simple as possible, but not simpler.* - Albert Einstein

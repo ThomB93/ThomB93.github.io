@@ -7,7 +7,7 @@ Author: Thomas Brunbjerg
 Summary: Mountain Bike Exercise app for Android made using Xamarin Forms and Django REST Framework
 featured_image: img/mtbxamarin_01.png
 
-[![tiny]({filename}/img/mtbxamarin_02.jpg)]({filename}/img/mtbxamarin_02.jpg)
+[![tiny]({static}/img/mtbxamarin_02.jpg)]({static}/img/mtbxamarin_02.jpg)
 This android app served as the first semester project in my Mobile Development class at University College Lillebaelt in 2020. It tracks various exercises made specifically for people wanting to better their mountain biking training. Users can open a session to be shown a list of exercises. Selecting a single exercise will display a detail page showing the required sets and repetitions needed to complete the exercise. To track their progress, a progress bar will update, while a line chart displays the recent activity in number of completed exercises. 
 
 Our group consisted of three people and we used **Azure DevOps** to serve as the main version control system and CI/CD pipeline. Since most of the back- and front-end code is written using Xamarin Forms, a future port to iOS is a simple process that can take advantage of the cross-platform capabilities of Xamarin. 

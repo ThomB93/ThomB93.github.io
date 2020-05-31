@@ -52,7 +52,7 @@
  <div class="col-md-12">
         <h1><strong>Article | </strong>CAP Theorem</h1>
      <br>
-     <h4 style="padding-left: 7%; padding-right: 7%;"></h4>
+     <h4 style="padding-left: 7%; padding-right: 7%;"><p>Outlines the basic principles of the CAP Theorem and its use in disributed computing systems</p></h4>
      
      
      <div class="content">
@@ -88,7 +88,7 @@
 <p><strong>Availability:</strong> A system has acieved availability when <em>every</em> client eventually returns a response for all requests within a reasonable time-frame. </p>
 <p><strong>Partition Tolerance:</strong> A system has achieved partition tolerance when it continues to process data when network partitions occur. A network partition refers to the act of a network splitting due to some failure in the system. This property can be seen more as a statement about the system in which the CAP theorem is applied to.  </p>
 <p>Note the italized words on the first two properties. When appying the CAP theorem to a distributed system, we are mostly interested in the first two properties. The third property, Partition Tolerance, is a requirement in any distributed system and so in actuality we end up with a choice between <strong>C</strong>(Consistency) and <strong>P</strong>(Partition Tolerance), or <strong>A</strong>(Availability) and <strong>P</strong>(Partition Tolerance). NoSQL databases like MongoDB and Redis are examples of PA systems, since they focus first an availability and consistency second. Traditional relational databses like MSSQL and Oracle Database are examples of CA systems, since they focus first on consistency and availability second. Another way to sum it up, is that PA systems use the <a href="https://stackoverflow.com/questions/3342497/explanation-of-base-terminology">BASE</a> principles, while the CA systems make use of the older <a href="https://en.wikipedia.org/wiki/ACID">ACID</a> principles. </p>
-<p><a href="{filename}/img/article//cap_theorem.jpeg"><img alt="tiny" src="./img/article/cap_theorem.jpeg"></a></p>
+<p><a href="./img/article/cap_theorem.png"><img alt="tiny" src="./img/article/cap_theorem.png"></a></p>
 <p>While this method of understanding the CAP theorem is simple, it is, however, not entirely true. Several reasons exist as to why this is the case.
 1. While partitions can certainly occur in networked system, it is very rare these days, making the choice between C or A obsolete.
 2. The choice between C and A can possibly occur many times within the networked system, even between each individual operation. 
@@ -102,7 +102,7 @@ In reality, the trade-off is not between all 3 poperties, but only between Consi
 </ul>
 <p>Since p2 cannot communication with p1, how will it know which response, v1 or v2, to respond with? It cannot distinquish between the two. It can <em>eventually</em> return a response, but then we cannot make sure that the response is correct. Alternatively we can choose not to send a response at all. In a distributed system, no solution for this problem is possible, thus proving the theorem. </p>
 <p>No communication between servers can be ensured to be 100% reliable. To attempt to resolve this problem, the servers may be decomposed into multiple groups called subnets. 
-<a href="{filename}/img/article//networkPartition.png"><img alt="small" src="./img/article/networkPartition.png"></a>
+<a href="./img/article/networkPartition.png"><img alt="small" src="./img/article/networkPartition.png"></a>
 As the image above illustrates, the network is being split into several smaller networks, with each iteration removing the least important connections within some threshold.</p></p>
      </div>
  </div>

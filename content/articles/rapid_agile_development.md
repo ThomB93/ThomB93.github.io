@@ -4,14 +4,14 @@ Category: Article
 Tags: software, architecture, rad, rapid, agile, development
 Slug: rapid-agile-dev
 Author: Thomas Brunbjerg
-Summary: Describes the RAD modelby James Martin and how you might apply it to an agile project. 
+Summary: Describes the RAD model by James Martin and how you might apply it to a project following the agile principles
 report: article
 
-RAD models are basically agile models that focuses on getting software done as quickly as possible. Examples of these models are Scrum and XP (Extreme Programming), which are the most well known. The end goal for these models is to have the project done in a fast manner and delivered to the customer early. RAD is originally a model in and of itself, but new models have started incorporating features from this model into their, so we call these features RAD principles. You can learn more about the agile principles by reading the [Agile Manifesto](http://agilemanifesto.org/), which is generally regarded as the core principles in any agile development model.
+RAD models are agile models that focus on getting software done as quickly as possible. Examples of these models include Scrum and XP (Extreme Programming), which are the most well known. The end goal for these models is to have the project done in a fast manner and be delivered to the customer early. RAD is originally a model in and of itself, but new models have started incorporating features from this model into their own, so we will call these features the 'RAD principles'. You can learn more about the agile principles by reading the [Agile Manifesto](http://agilemanifesto.org/), which are generally regarded as the core principles used in any agile development model.
 
-The original RAD model by James Martin looks like this.
-[![small]({filename}/img/article/rad_model.png)]({filename}/img/article/rad_model.png)
-The requirements phase is done once and then the developers iterate over construction and user design until all requirements are met and the product can be delivered to the customer. The customers can give feedback and provide adjustments to the project in the user design phase, if the projects seems to go off track. Cutover means when the project is delivered to the user.
+The original RAD model by James Martin can be seen below:
+[![small]({static}/img/article/rad_model.png)]({static}/img/article/rad_model.png)
+The requirements phase is done once and then the developers iterate over construction and user design until all requirements are met and the product can be delivered to the customer. The customers can then give feedback and provide adjustments to the project in the user design phase if the projects seems to be going off track. Cutover describes the point when the project is delivered to the user.
 
 Agile models are generally preferred over the traditional models, such as the Waterfall model, since they have been proved to minimize bugs and meet more requirements. Projects following these models are able to adapt to change, whether it be internal or external and thereby change how the project is laid out during development. With these kinds of models you should minimize the amount of documentation, since whatever you wrote in week 1 might not by applicable in week 20. You should avoid too much planning early on, since projects are split into short time-boxed iterations, that can last for as little as 1 week. You can’t plan several months ahead, since your might will most certainly change.
 

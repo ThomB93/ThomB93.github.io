@@ -30,7 +30,7 @@ For each defect you should ask yourself 3 questions:
     3. For customer-discovered defects, how could you have found the defect before the customers did?
 
 Another way to better categorize a defect into a task type, or several, is by using [Ishikawa Diagrams](https://en.wikipedia.org/wiki/Ishikawa_diagram) that can track a defect all the way back to its origin point. Perhaps the defect is present in more than one task type. The diagrams helps you find the root cause of the defect.
-[![small]({filename}/img/article/ishikawa.jpg)]({filename}/img/article/ishikawa.jpg)
+[![small]({static}/img/article/ishikawa.jpg)]({static}/img/article/ishikawa.jpg)
 After discovering and fixing a few defects you might want to get a more overall picture on how well your project performs. This is where metrics get into the picture. These are more quantitative measurement techniques that are equally as useful.
 
 An **Attribute** is a thing in your project that is measurable, like lines of code, number of comments.
@@ -50,9 +50,9 @@ Metrics can be grouped into 2 categories: Process metrics and project metrics.
 The main problem with metrics is that they only add value to the current project, but there is a way to compare how 2 different projects are doing, using Size Normalization.
 
 Suppose you measured lines of code, number of developers, time in months, number of bugs and total effort for 2 projects.
-[![small]({filename}/img/article/metric_table_1.png)]({filename}/img/article/metric_table_1.png)
+[![small]({static}/img/article/metric_table_1.png)]({static}/img/article/metric_table_1.png)
 How do we see which project performs better? We use a series of calculations to help us.
-[![small]({filename}/img/article/metric_table_2.png)]({filename}/img/article/metric_table_2.png)
+[![small]({static}/img/article/metric_table_2.png)]({static}/img/article/metric_table_2.png)
 These calculations show that project Fracas was more productive in terms of lines of code per effort, but that project Ruction had less buggy code.Only do calculations that makes relevant sense and then conclude something based on that. In this way we can compare several projects to each other and perhaps decide which ones to keep and which ones to disband.
 
 Finding and fixing bugs can be tough, so we use metrics to help us do just that. There are many more methods available for measuring all aspects of a project in high detail.
