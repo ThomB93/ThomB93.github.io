@@ -12,12 +12,14 @@ PATH = 'content'
 
 STATIC_PATHS = ['img']
 
+MATH_JAX = {'color':'blue','align':'left'}
+
 PAGE_PATHS = ['pages']
 PAGE_URL = '{slug}.html'
 PAGE_SAVE_AS = '{slug}.html'
 
-ARTICLE_PATHS = ['posts', 'articles', 'hobby']
-ARTICLE_EXCLUDES = ['articles', 'hobby']
+ARTICLE_PATHS = ['posts', 'articles']
+ARTICLE_EXCLUDES = ['articles']
 
 TAG_SAVE_AS = '{slug}.html'
 TAG_URL = '{slug}.html'
@@ -27,7 +29,7 @@ GITHUB_URL = 'https://github.com/ThomB93'
 TIMEZONE = 'Europe/Paris'
 
 DEFAULT_LANG = 'en'
-SUMMARY_MAX_LENGTH = 30
+SUMMARY_MAX_LENGTH = 40
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None

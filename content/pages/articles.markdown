@@ -17,7 +17,6 @@ icons: no
 
 * [Domain Driven Design]({filename}/articles/domain_driven_design.md)
 * [Microservice Architecture]({filename}/articles/microservice_architecture.md)
-* [Command Query Responsbility Segregation]()
 
 **Software Concepts:**
 
@@ -25,6 +24,8 @@ icons: no
 * [CAP Theorem]({filename}/articles/cap_theorem.md)
 
 **Machine Learning:**
+
+* [ARMA Model]({filename}/articles/arma.md)
 
 **Guides:**
 

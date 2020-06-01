@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <title>Autoregressive Moving Average Model</title>
+ <!-- Latest compiled and minified Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!--link rel="stylesheet" href="theme/css/rdark.css" /-->
+<link rel="stylesheet" type="text/css" href="theme/css/main.css" />
+
+    <!-- Using MathJax, with the delimiters $ -->
+<!-- Conflict with pygments for the .mo and .mi -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+  "HTML-CSS": {
+  styles: {
+  ".MathJax .mo, .MathJax .mi": {color: "black ! important"}}
+  },
+  tex2jax: {inlineMath: [['$','$'], ['\\\\(','\\\\)']],processEscapes: true}
+  });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+
+</head>
+<body>
+    
+    <title></title>
+    
+<nav >
+  <div class="container" id="navbar">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="index.html">Portfolio</a>
+    </div>
+    <ul class="nav navbar-nav">
+            <li><b>|</b></li>
+            <li>
+                <a href="./articles.html">Articles</a></li>
+            <li><b>|</b></li>
+            <li>
+                <a href="./cv.html">CV</a></li>
+            <li><b>|</b></li>
+            <li>
+                <a href="./hobby.html">Hobby</a></li>
+    </ul>
+  </div>
+</nav>
+    
+    
+<!-- Main Content -->
+ <div class="container" id="main">
+<div class="row">
+ <div class="col-md-12">
+        <h1><strong>Article | </strong>Autoregressive Moving Average Model</h1>
+     <br>
+     <h4 style="padding-left: 7%; padding-right: 7%;"><p>Describes the ARMA model in relation to Machine Learning and Time Series Data</p></h4>
+     
+     
+     <div class="content">
+         <hr style="border-width: thin; border-color: black">
+         
+        <p>
+            <img src="theme/img/date3.png" style="height:25px" class="icon">  
+            <strong> | Article Year -- </strong> 2020</p>
+         <p>
+                <img src="theme/img/skills2.png" style="height:25px" class="icon">             
+             <strong> | Tags -- </strong>
+        <a href="./arma.html">arma</a> | 
+        <a href="./autoregressive.html">autoregressive</a> | 
+        <a href="./moving-average.html">moving average</a> | 
+        <a href="./machine-learning.html">machine learning</a> | 
+        <a href="./ml.html">ml</a> | 
+        <a href="./time-series.html">time series</a> | 
+    </p>
+     
+
+
+    
+
+
+         
+        
+         
+         
+         
+         <hr style="border-width: thin; border-color: black; padding-bottom: 4%;">
+
+         <p><p>The ARMA Model is a merger between the AR (Autoregressive) and MA (Moving Average) models. By combining the two, we produce a more sophisticated model for making predictions on time series data. The AR part makes the variables be regressed onto their own past values, while the MA part takes unexpected effects into account. Note that the time series used must still be stationary for the AR part to be effective. </p>
+<p>So what does the model consist of? Let's take a look at each of the parts to gain a better understanding of the model as a whole.</p>
+<p><strong>AR</strong>: Uses a linear combination of past values of the variable we want to predict. The 'Auto' part indicates that it is a regression of the variable onto itself. </p>
+<p><strong>MA</strong>: Uses past forecast errors in a linear regression of the variable to make predictions. </p>
+<p>Now that we have a rough understanding of each part, let's dive deeper into an example of the ARMA model in action. Let's say we want to predict how many lightbulbs will be sold given some past sales numbers from previous months. First, let's take a look at the equation below, which corresponds to an <strong>ARMA(1,1)</strong> model.</p>
+<p>The orders (1,1) of the model, determines the number of time lags that we include for each part. Thus if we change the model to have the orders of (2,1), then we include time lags from both last month and 2 months ago in the equation. These are normally given as (p,q), with 'p' determining the order of the AR part and 'q' determining the order of the MA part. By excluding one of these orders, you can create either an AR or an MA model. </p>
+<h2>$$l_t=\beta_0+\beta_1l_{t-1} + \phi_1\epsilon_{t-1}+\epsilon_t$$</h2>
+<p>To gain a better understanding, let's define each term as it is written:</p>
+<p><strong>l<sub>t</sub></strong> is the number of lightbulbs that we should sell this month. In other words, this is the number that we want to predict using our ARMA model.</p>
+<p><strong>$B$<sub>0</sub></strong> is a coefficient or constant that we include - also called a 'Shock term'. </p>
+<p><strong>$B$<sub>1</sub></strong> is the autoregressive coefficient at lag 1.</p>
+<p><strong>l<sub>t-1</sub></strong> is the number of light bulbs that was sold last month (1 from the current month).</p>
+<p><strong>$\phi$<sub>1</sub></strong> is another coefficient or constant that we include.</p>
+<p><strong>$\epsilon$<sub>t-1</sub></strong> is the error, or 'Shock Term' from the last month (1 from the current month).</p>
+<p><strong>$\epsilon$<sub>t</sub></strong> is the error from the current month.</p>
+<p>There are some unknowns in this equation, such as the light bulbs that we need to sell this month and the error for the current month. However we <em>do</em> have acccess to all past knowledge. As such we can form a new equation for our predictions without these unknown values. </p>
+<h2>$$\hat{l_t}=\beta_0+\beta_1l_{t-1} + \phi_1\epsilon_{t-1}$$</h2>
+<p>Now we have an equation to help us predict the number of light bulbs we should sell this month. </p>
+<h2>How to use the model in Python?</h2>
+<h2>How do you determine the AR and MA orders?</h2>
+<p>To determine the order values, we make use of Autocorrelation (ACF) for the MA part and Partial Autocorrelation (PACF) for the AR part. Our goal is to use lags that are correlated the most to the value we want to predict. So how do you use these methods for determining the orders?</p>
+<p><a href="./img/article/arma_acf_pacf.png"><img alt="small" src="./img/article/arma_acf_pacf.png"></a></p>
+<p><strong>ACF</strong>: Measures the moving average for the time series and therefore helps determine the MA order. As an example, </p></p>
+     </div>
+ </div>
+</div>
+</div>
+<!-- End of Main Content --> 
+   
+    
+<!--  Footer   -->
+    <div class="container" id="footer">
+        <ul>
+            <li>
+                <a href="mailto:thomb@hotmail.dk">
+                    <img src="theme/img/email.png" style="height:30px" class="icon">
+                </a> 
+            
+            </li>   
+            <li><b>|</b></li>
+            <li>                
+                <a target="_blank" href="https://www.linkedin.com/in/thomas-brunbjerg-8a6ba8137/">
+                    <img src="theme/img/linkedin.jpg" style="height:30px" class="icon">
+                </a> 
+            </li>
+            <li><b>|</b></li>
+                <li>
+                <a target="_blank" href="https://github.com/ThomB93">
+                    <img src="theme/img/github.png" style="height:30px" class="icon">
+                </a>
+            </li>
+            <li><b>|</b></li>
+                <li>
+                <a target="_blank" href="https://www.youtube.com/channel/UC3rc5zj8sLo_HiPXCxb0y4g">
+                    <img src="theme/img/youtube.png" style="height:30px" class="icon">
+                </a>
+            </li>
+        </ul>
+    </div>
+    
+<!--  End Footer  -->
+    
+</body>
+</html>

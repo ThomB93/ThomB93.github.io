@@ -1,7 +1,7 @@
 Title: Software Quality & Metrics
 Date: 2017-10-31
 Category: Article
-Tags: software, architecture, metrics, quality, ishiakwa diagram
+Tags: software, architecture, metrics, quality, ishikwa diagram
 Slug: software-quality-metrics
 Author: Thomas Brunbjerg
 Summary: 
@@ -25,12 +25,12 @@ Finally, you can assign a defect to a certain task type. Examples of task types 
 
 For each defect you should ask yourself 3 questions:
 
-    1. How could you have avoided the defect in the first place?
-    2. How could you have detected the defect sooner?
-    3. For customer-discovered defects, how could you have found the defect before the customers did?
+1. How could you have avoided the defect in the first place?
+2. How could you have detected the defect sooner?
+3. For customer-discovered defects, how could you have found the defect before the customers did?
 
 Another way to better categorize a defect into a task type, or several, is by using [Ishikawa Diagrams](https://en.wikipedia.org/wiki/Ishikawa_diagram) that can track a defect all the way back to its origin point. Perhaps the defect is present in more than one task type. The diagrams help you find the root cause of the defect.
-[![small]({static}/img/article/ishikawa.jpg)]({static}/img/article/ishikawa.jpg)
+[![small]({static}/img/article/ishikawa.png)]({static}/img/article/ishikawa.png)
 After discovering and fixing a few defects you might want to get a more overall picture of how well your project performs. This is where metrics get into the picture. These are more quantitative measurement techniques that are equally as useful.
 
 An **Attribute** is a thing in your project that is measurable, like lines of code, number of comments.

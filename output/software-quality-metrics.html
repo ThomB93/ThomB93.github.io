@@ -68,7 +68,7 @@
         <a href="./architecture.html">architecture</a> | 
         <a href="./metrics.html">metrics</a> | 
         <a href="./quality.html">quality</a> | 
-        <a href="./ishiakwa-diagram.html">ishiakwa diagram</a> | 
+        <a href="./ishikwa-diagram.html">ishikwa diagram</a> | 
     </p>
      
 
@@ -94,14 +94,13 @@
 <p>Age at Fix is a number telling the time that went from when the defect was discovered until it was fixed. Next time focus on the defects that went unfixed for the longest time.</p>
 <p>Finally, you can assign a defect to a certain task type. Examples of task types are tools, security, database, user interface, hardware, etc.</p>
 <p>For each defect you should ask yourself 3 questions:</p>
-<div class="highlight"><pre><span></span><code><span class="err">1. How could you have avoided the defect in the first place?</span>
-<span class="err">2. How could you have detected the defect sooner?</span>
-<span class="err">3. For customer-discovered defects, how could you have found the defect before the customers did?</span>
-</code></pre></div>
-
-
+<ol>
+<li>How could you have avoided the defect in the first place?</li>
+<li>How could you have detected the defect sooner?</li>
+<li>For customer-discovered defects, how could you have found the defect before the customers did?</li>
+</ol>
 <p>Another way to better categorize a defect into a task type, or several, is by using <a href="https://en.wikipedia.org/wiki/Ishikawa_diagram">Ishikawa Diagrams</a> that can track a defect all the way back to its origin point. Perhaps the defect is present in more than one task type. The diagrams help you find the root cause of the defect.
-<a href="./img/article/ishikawa.jpg"><img alt="small" src="./img/article/ishikawa.jpg"></a>
+<a href="./img/article/ishikawa.png"><img alt="small" src="./img/article/ishikawa.png"></a>
 After discovering and fixing a few defects you might want to get a more overall picture of how well your project performs. This is where metrics get into the picture. These are more quantitative measurement techniques that are equally as useful.</p>
 <p>An <strong>Attribute</strong> is a thing in your project that is measurable, like lines of code, number of comments.</p>
 <p>A <strong>Metric</strong> is a value that you can use to study a part of your project. They are often a calculated value from your attributes and provides valuable information.</p>
