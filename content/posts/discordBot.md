@@ -5,7 +5,7 @@ Tags: c#, json, bots, discord, mysql
 Slug: discord-bot
 Author: Thomas Brunbjerg
 Summary: A Discord Bot developed in C# using the .NET Wrapper
-featured_image: img/discord_bot_01.jpg
+featured_image: img/discord_bot_cover.gif
 repository: https://github.com/ThomB93/DiscordBot
 
 This bot was made using the unofficial .NET wrapper for the Discord API. More information about the wrapper can be found on the [Github repo](https://github.com/discord-net/Discord.Net)

@@ -7,7 +7,5 @@ icons: no
 
 **Writing**
 
-* [NaNoWriMo Entry 2019]({filename}/hobby/nanowrimo2019.md)
-
 **Piano**
 
