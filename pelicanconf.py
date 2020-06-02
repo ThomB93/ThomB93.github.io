@@ -12,8 +12,6 @@ PATH = 'content'
 
 STATIC_PATHS = ['img']
 
-MATH_JAX = {'color':'blue','align':'left'}
-
 PAGE_PATHS = ['pages']
 PAGE_URL = '{slug}.html'
 PAGE_SAVE_AS = '{slug}.html'
