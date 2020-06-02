@@ -19,6 +19,7 @@ Now that we have a rough understanding of each part, let's dive deeper into an e
 
 The orders (1,1) of the model, determines the number of time lags that we include for each part. Thus if we change the model to have the orders of (2,1), then we include time lags from both last month and 2 months ago in the equation. These are normally given as (p,q), with 'p' determining the order of the AR part and 'q' determining the order of the MA part. By excluding one of these orders, you can create either an AR or an MA model. 
 
+
 ## $$l_t=\beta_0+\beta_1l_{t-1} + \phi_1\epsilon_{t-1}+\epsilon_t$$
 
 To gain a better understanding, let's define each term as it is written:
@@ -49,6 +50,7 @@ Now we have an equation to help us predict the number of light bulbs we should s
 To determine the order values, we make use of Autocorrelation (ACF) for the MA part and Partial Autocorrelation (PACF) for the AR part. Our goal is to use lags that are correlated the most to the value we want to predict. So how do you use these methods for determining the orders?
 
 [![small]({static}/img/article/arma_acf_pacf.png)]({static}/img/article/arma_acf_pacf.png)
+
 
 **ACF**: Measures the moving average for the time series and therefore helps determine the MA order. As an example, 
 

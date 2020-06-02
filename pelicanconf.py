@@ -16,6 +16,9 @@ PAGE_PATHS = ['pages']
 PAGE_URL = '{slug}.html'
 PAGE_SAVE_AS = '{slug}.html'
 
+#PLUGIN_PATHS = ["content/plugins", "plugins","./pelican-plugins"]
+#PLUGINS = ["render_math"]
+
 ARTICLE_PATHS = ['posts', 'articles']
 ARTICLE_EXCLUDES = ['articles']
 

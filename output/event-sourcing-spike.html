@@ -10,16 +10,30 @@
     <!-- Using MathJax, with the delimiters $ -->
 <!-- Conflict with pygments for the .mo and .mi -->
 <script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-  "HTML-CSS": {
-  styles: {
-  ".MathJax .mo, .MathJax .mi": {color: "black ! important"}}
-  },
-  tex2jax: {inlineMath: [['$','$'], ['\\\\(','\\\\)']],processEscapes: true}
-  });
-</script>
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+    styles: {
+    ".MathJax .mo, .MathJax .mi": {color: "black ! important"}}
+    },
+    tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']],processEscapes: true}
+    });
+    MathJax.Hub.Register.StartupHook("HTML-CSS Jax Ready",function () {
+        var VARIANT = MathJax.OutputJax["HTML-CSS"].FONTDATA.VARIANT;
+        VARIANT["normal"].fonts.unshift("MathJax_SansSerif");
+        VARIANT["bold"].fonts.unshift("MathJax_SansSerif-bold");
+        VARIANT["italic"].fonts.unshift("MathJax_SansSerif-italic");
+        VARIANT["-tex-mathit"].fonts.unshift("MathJax_SansSerif-italic");
+        });
+        MathJax.Hub.Register.StartupHook("SVG Jax Ready",function () {
+        var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;
+        VARIANT["normal"].fonts.unshift("MathJax_SansSerif");
+        VARIANT["bold"].fonts.unshift("MathJax_SansSerif-bold");
+        VARIANT["italic"].fonts.unshift("MathJax_SansSerif-italic");
+        VARIANT["-tex-mathit"].fonts.unshift("MathJax_SansSerif-italic");
+        });
+  </script>
 
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
 </head>
 <body>
@@ -88,7 +102,7 @@
          <hr style="border-width: thin; border-color: black; padding-bottom: 4%;">
 
          <p><p>Event Sourcing is an alternative approach to data persistence that leverages the use of events to capture past actions in the system as a way to store information, while also providing logging features. The source of these events is the system in which Event Sourcing is being applied. Instead of storing tables of data, as in traditional relational databases, data is stored using 'event streams', with each stream corresponding to a business entity (or an Aggregate in Domain-Driven Design). Each individual event contains information about the changes made to an entity at a given time. By following the timeline of events from beginning to end it is possible to derive the current state of an entity. One important aspect of this way of persisting data, is that past data may not be deleted or changed (all events are immutable) - the events themselves provide a look into the past and we all know you can't 'change' or 'delete' the past.</p>
-<p>The way in which you write events is important. They should be represented as verbs in the past tense, such as 'UserRegistered' or 'UserUpdated'. By also following the DDD principles, this then becomes part of the ubiquitous language. If you had instead implemented this as a 'User' table inside an RDBMS, you would lose the log of previous changes that had occurred to a single user. This makes all actions that happen in a system explicit and easier to interpret and act upon.</p>
+<p>The way in which you write events is important. They should be represented as verbs in the past tense, such as 'UserRegistered' or 'UserUpdated'. By also following the DDD principles, this then becomes part of the ubiquitous language. If you had instead implemented this as a 'User' table inside an RDBMS, you would lose the history of previous changes that had occurred to a single user. This makes all actions that happen in a system explicit and easier to interpret and act upon.</p>
 <p><a href="./img/eventsourcingspike_02.png"><img alt="small" src="./img/eventsourcingspike_02.png"></a></p>
 <p>You might say that we are persisting two things with Event Sourcing: The application state and an event log. It's now possible to query the application state at any point in time by using temporal queries and we also get a log of changes to the state, which can later be used in error handling scenarios or as business intelligence. By using 'Event Replay' we can easily see what went wrong in the chain of events for one particular entity. If a system communicates via Async messaging, it might happen that some events are received in the wrong order - therefore it is highly important that the system supports the possibility of replaying events. </p>
 <p>...</p>
