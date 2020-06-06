@@ -17,20 +17,6 @@
     },
     tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']],processEscapes: true}
     });
-    MathJax.Hub.Register.StartupHook("HTML-CSS Jax Ready",function () {
-        var VARIANT = MathJax.OutputJax["HTML-CSS"].FONTDATA.VARIANT;
-        VARIANT["normal"].fonts.unshift("MathJax_SansSerif");
-        VARIANT["bold"].fonts.unshift("MathJax_SansSerif-bold");
-        VARIANT["italic"].fonts.unshift("MathJax_SansSerif-italic");
-        VARIANT["-tex-mathit"].fonts.unshift("MathJax_SansSerif-italic");
-        });
-        MathJax.Hub.Register.StartupHook("SVG Jax Ready",function () {
-        var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;
-        VARIANT["normal"].fonts.unshift("MathJax_SansSerif");
-        VARIANT["bold"].fonts.unshift("MathJax_SansSerif-bold");
-        VARIANT["italic"].fonts.unshift("MathJax_SansSerif-italic");
-        VARIANT["-tex-mathit"].fonts.unshift("MathJax_SansSerif-italic");
-        });
   </script>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
@@ -78,11 +64,11 @@
          <p>
                 <img src="theme/img/skills2.png" style="height:25px" class="icon">             
              <strong> | Tags -- </strong>
-        <a href="./cap-theorem.html">cap theorem</a> | 
-        <a href="./consistency.html">consistency</a> | 
-        <a href="./availability.html">availability</a> | 
-        <a href="./partition-tolerance.html">partition tolerance</a> | 
-        <a href="./distributed-systems.html">distributed systems</a> | 
+        <span>cap theorem</span> | 
+        <span>consistency</span> | 
+        <span>availability</span> | 
+        <span>partition tolerance</span> | 
+        <span>distributed systems</span> | 
     </p>
      
 
@@ -101,7 +87,7 @@
 <p><strong>Consistency:</strong> A system has achieved consistency when every client on the network has the <em>same</em> view of the data at any given time. Each server will return the <em>correct</em> response for each request. </p>
 <p><strong>Availability:</strong> A system has achieved availability when <em>every</em> client eventually returns a response for all requests within a reasonable time-frame. </p>
 <p><strong>Partition Tolerance:</strong> A system has achieved partition tolerance when it continues to process data when network partitions occur. A network partition refers to the act of a network splitting due to some failure in the system. This property can be seen more as a statement about the system in which the CAP theorem is applied.  </p>
-<p>Note the italicized words on the first two properties. When applying the CAP theorem to a distributed system, we are mostly interested in the first two properties. The third property, Partition Tolerance, is a requirement in any distributed system and so in actuality, we end up with a choice between <strong>C</strong>(Consistency) and <strong>P</strong>(Partition Tolerance), or <strong>A</strong>(Availability) and <strong>P</strong>(Partition Tolerance). NoSQL databases like MongoDB and Redis are examples of PA systems since they focus first an availability and consistency second. Traditional relational databases like MSSQL and Oracle Database are examples of CA systems since they focus first on consistency and availability second. Another way to sum it up is that PA systems use the <a href="https://stackoverflow.com/questions/3342497/explanation-of-base-terminology">BASE</a> principles, while the CA systems make use of the older <a href="https://en.wikipedia.org/wiki/ACID">ACID</a> principles. </p>
+<p>Note the italicized words on the first two properties. When applying the CAP theorem to a distributed system, we are mostly interested in the first two properties. The third property, Partition Tolerance, is a requirement in any distributed system and so in actuality, we end up with a choice between <strong>C</strong>(Consistency) and <strong>P</strong>(Partition Tolerance), or <strong>A</strong>(Availability) and <strong>P</strong>(Partition Tolerance). NoSQL databases like MongoDB and Redis are examples of PA systems since they focus first an availability and consistency second. Traditional relational databases like MSSQL and Oracle Database are examples of CA systems since they focus first on consistency and availability second. Another way to sum it up is that PA systems use the <a href="https://stackoverflow.com/questions/3342497/explanation-of-base-terminology">BASE</a> (Basically Available, Soft state, Eventual consistency)principles, while the CA systems make use of the older <a href="https://en.wikipedia.org/wiki/ACID">ACID</a> (Atomicity, Consistency, Isolation, Durability) principles. </p>
 <p><a href="./img/article/cap_theorem.png"><img alt="tiny" src="./img/article/cap_theorem.png"></a></p>
 <p>While this method of understanding the CAP theorem is simple, it is, however, not entirely true. Several reasons exist as to why this is the case.
 1. While partitions can certainly occur in a networked system, it is very rare these days, making the choice between C or A obsolete.

@@ -28,7 +28,7 @@
                 <img src="theme/img/skills2.png" style="height:25px" class="icon">             
              <strong> | Tags -- </strong>
     {% for tag in article.tags %}
-        <a href="{{ SITEURL }}/{{tag.slug}}.html">{{ tag }}</a> | 
+        <span>{{ tag }}</span> | 
     {% endfor %}
     </p>
      

@@ -11,7 +11,8 @@ icons: no
 * [Crystal Methodologies]({filename}/articles/crystal_methodologies.md)
 * [Project Estimation]({filename}/articles/estimating_projects.md)
 * [RAD (Rapid Agile Development)]({filename}/articles/rapid_agile_development.md)
-
+* [Extreme Programming]({filename}/articles/extremeprogramming.md)
+* [Scrum Framework]({filename}/articles/scrum.md)
 
  **Software Architecture:**
 
@@ -26,6 +27,7 @@ icons: no
 **Machine Learning:**
 
 * [ARMA Model]({filename}/articles/arma.md)
+* [Random Forest]({filename}/articles/randomForest.md)
 
 **Guides:**
 

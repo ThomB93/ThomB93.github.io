@@ -1,7 +1,7 @@
 Title: Discord Bot in .NET
 Date: 2020
 Category: Project
-Tags: c#, json, bots, discord, mysql
+Tags: c#, json, bots, discord, mysql, api
 Slug: discord-bot
 Author: Thomas Brunbjerg
 Summary: A Discord Bot developed in C# using the .NET Wrapper

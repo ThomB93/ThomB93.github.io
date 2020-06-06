@@ -17,20 +17,6 @@
     },
     tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']],processEscapes: true}
     });
-    MathJax.Hub.Register.StartupHook("HTML-CSS Jax Ready",function () {
-        var VARIANT = MathJax.OutputJax["HTML-CSS"].FONTDATA.VARIANT;
-        VARIANT["normal"].fonts.unshift("MathJax_SansSerif");
-        VARIANT["bold"].fonts.unshift("MathJax_SansSerif-bold");
-        VARIANT["italic"].fonts.unshift("MathJax_SansSerif-italic");
-        VARIANT["-tex-mathit"].fonts.unshift("MathJax_SansSerif-italic");
-        });
-        MathJax.Hub.Register.StartupHook("SVG Jax Ready",function () {
-        var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;
-        VARIANT["normal"].fonts.unshift("MathJax_SansSerif");
-        VARIANT["bold"].fonts.unshift("MathJax_SansSerif-bold");
-        VARIANT["italic"].fonts.unshift("MathJax_SansSerif-italic");
-        VARIANT["-tex-mathit"].fonts.unshift("MathJax_SansSerif-italic");
-        });
   </script>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
@@ -78,11 +64,11 @@
          <p>
                 <img src="theme/img/skills2.png" style="height:25px" class="icon">             
              <strong> | Tags -- </strong>
-        <a href="./domain.html">domain</a> | 
-        <a href="./driven.html">driven</a> | 
-        <a href="./design.html">design</a> | 
-        <a href="./microservices.html">microservices</a> | 
-        <a href="./ddd.html">ddd</a> | 
+        <span>domain</span> | 
+        <span>driven</span> | 
+        <span>design</span> | 
+        <span>microservices</span> | 
+        <span>ddd</span> | 
     </p>
      
 

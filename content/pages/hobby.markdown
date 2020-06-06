@@ -5,7 +5,5 @@ Summary: My Hobbies
 sortorder: 10
 icons: no
 
-**Writing**
-
-**Piano**
+Work in progress...
 

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <title>Extreme Programming</title>
+ <!-- Latest compiled and minified Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!--link rel="stylesheet" href="theme/css/rdark.css" /-->
+<link rel="stylesheet" type="text/css" href="theme/css/main.css" />
+
+    <!-- Using MathJax, with the delimiters $ -->
+<!-- Conflict with pygments for the .mo and .mi -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+    styles: {
+    ".MathJax .mo, .MathJax .mi": {color: "black ! important"}}
+    },
+    tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']],processEscapes: true}
+    });
+  </script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+</head>
+<body>
+    
+    <title></title>
+    
+<nav >
+  <div class="container" id="navbar">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="index.html">Portfolio</a>
+    </div>
+    <ul class="nav navbar-nav">
+            <li><b>|</b></li>
+            <li>
+                <a href="./articles.html">Articles</a></li>
+            <li><b>|</b></li>
+            <li>
+                <a href="./cv.html">CV</a></li>
+            <li><b>|</b></li>
+            <li>
+                <a href="./hobby.html">Hobby</a></li>
+    </ul>
+  </div>
+</nav>
+    
+    
+<!-- Main Content -->
+ <div class="container" id="main">
+<div class="row">
+ <div class="col-md-12">
+        <h1><strong>Article | </strong>Extreme Programming</h1>
+     <br>
+     <h4 style="padding-left: 7%; padding-right: 7%;"><p>Describes the methodology of Extreme Programming and its benefits</p></h4>
+     
+     
+     <div class="content">
+         <hr style="border-width: thin; border-color: black">
+         
+        <p>
+            <img src="theme/img/date3.png" style="height:25px" class="icon">  
+            <strong> | Article Year -- </strong> 2017</p>
+         <p>
+                <img src="theme/img/skills2.png" style="height:25px" class="icon">             
+             <strong> | Tags -- </strong>
+        <span>extreme</span> | 
+        <span>programming</span> | 
+        <span>xp</span> | 
+        <span>methodology</span> | 
+        <span>agile</span> | 
+    </p>
+     
+
+
+    
+
+
+         
+        
+         
+         
+         
+         <hr style="border-width: thin; border-color: black; padding-bottom: 4%;">
+
+         <p><p>XP is yet another agile software development methodology, that focuses on being able to frequently act on changing customer requirements while also having frequent iterations and releases. There are many aspects to XP and I'll go through the most important processes involved and explain how they fit together to hopefully being able to deliver a software product by the end of the project cycle.</p>
+<p><a href="./img/article/xp_01.png"><img alt="small" src="./img/article/xp_01.png"></a></p>
+<p>Before any iteration can begin, you need to establish the user stories, which are the customer requirements written in an informal manner by the customer, so as to sort of 'tell a story' as to what the requirement needs to do. An example would be: "As a customer, I want to be able to check my added items so that I can purchase them later." You can use this format for all the user stories, showing WHO needs to do the action, WHAT they need to do, and WHY.</p>
+<p>Release Planning is a meeting where the release plan is created, which contains all the user stories and the iterations in which they are planned. Go through each user story and estimate it in a number of weeks, 1-2 or 3. Then have the customer pick the ones with the highest priority. Don't plan out the iterations in detail, that comes later. There are basically 4 variables for planning a release: time, scope, resources, and quality. All these variables affect one another and it is up to the team to focus on which are the most important.</p>
+<p>Iteration Planning is a meeting held just before an iteration starts (Also called a project heartbeat). The customer chooses which user stories go into the iteration and acceptance tests are created for each user story, which are scenarios specified by the customer in which the user story is considered done. If an iteration has already been completed, use the projected velocity from the last iteration to estimate how many user stories can be completed. I'll explain project-velocity in a short bit. Each user story for the iteration is broken down into tasks for and by each developer. A task should last 1-2 or 3 days. Estimate the total days of all the tasks and make sure they don't go above the project-velocity. Don't change the estimates to fit a needed total estimate, remove some user stories if you must.</p>
+<p><a href="./img/article/xp_02.png"><img alt="small" src="./img/article/xp_02.png"></a></p>
+<p>Project Velocity is a number describing how much work is getting done in each iteration. Calculate it by adding up all the user stories that were finished in the first iteration, as well as the tasks. In the next iteration, the customer is allowed to select user stories with estimates that total up to the project-velocity. Calculate the project-velocity after each iteration, and if it falls dramatically, consider holding a new release planning meeting. The farther you are into the project, the better your estimations.</p>
+<p>During the release planning, you can choose to plan either in regard to time or scope. When planning in regard to time, use this calculation:</p>
+<div class="highlight"><pre><span></span><code><span class="err">(Number of iterations) * (Project Velocity) = User Stories to be completed</span>
+</code></pre></div>
+
+
+<p>When instead planning by scope use this calculation:</p>
+<div class="highlight"><pre><span></span><code><span class="err">(Total weeks of user stories) / (Project Velocity) = Iterations needed before release</span>
+</code></pre></div>
+
+
+<p>Both of these numbers can give an indication of how long a project will last and how much work can be completed.</p>
+<p>If after an iteration some the user stories fail their acceptance tests, they must be included in the next iteration and new acceptance tests must be completed.</p>
+<p>An iteration should last about 1-3 weeks, but make sure each iteration has more or less the same length, as it makes estimation easier. If you notice you can't finish all the user stories for the iteration, consider holding another iteration planning meeting during the iteration, and reschedule your tasks. Never add more functionality than what is needed.</p>
+<p>Another important aspect is XP is automated testing and especially unit testing. All code should have unit tests attached. Write the test first, then code. No code may be released that has not passed all its unit tests. This also ensures that you don't add unnecessary code, as it only has to pass all unit tests and nothing more.</p>
+<p>Spike Solutions are small programs meant to explore a certain technical problem and hopefully figure out a solution. Put a few developers on the problem and let them crunch out a solution, without concerning themselves with anything else during that time.</p></p>
+     </div>
+ </div>
+</div>
+</div>
+<!-- End of Main Content --> 
+   
+    
+<!--  Footer   -->
+    <div class="container" id="footer">
+        <ul>
+            <li>
+                <a href="mailto:thomb@hotmail.dk">
+                    <img src="theme/img/email.png" style="height:30px" class="icon">
+                </a> 
+            
+            </li>   
+            <li><b>|</b></li>
+            <li>                
+                <a target="_blank" href="https://www.linkedin.com/in/thomas-brunbjerg-8a6ba8137/">
+                    <img src="theme/img/linkedin.jpg" style="height:30px" class="icon">
+                </a> 
+            </li>
+            <li><b>|</b></li>
+                <li>
+                <a target="_blank" href="https://github.com/ThomB93">
+                    <img src="theme/img/github.png" style="height:30px" class="icon">
+                </a>
+            </li>
+            <li><b>|</b></li>
+                <li>
+                <a target="_blank" href="https://www.youtube.com/channel/UC3rc5zj8sLo_HiPXCxb0y4g">
+                    <img src="theme/img/youtube.png" style="height:30px" class="icon">
+                </a>
+            </li>
+        </ul>
+    </div>
+    
+<!--  End Footer  -->
+    
+</body>
+</html>

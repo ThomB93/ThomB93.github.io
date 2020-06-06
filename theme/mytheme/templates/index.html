@@ -17,7 +17,7 @@
     <br>
     <br>
     <div class="row">
-  {% for article in articles_page.object_list if article.category == 'Project' %}
+  {% for article in articles if article.category == 'Project' %}
     {% if  loop.index0 is divisibleby 3%}
     </div>
         <div class="row">

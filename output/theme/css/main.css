@@ -61,7 +61,7 @@ h6 a { color: inherit !important }
 }
 
 #navbar a:active{
-    color: darkgreen; 
+    color: firebrick; 
     text-decoration: underline;
 }
 
@@ -82,11 +82,11 @@ h6 a { color: inherit !important }
 
 
 
-a:link, a    { color: darkgreen; text-decoration: none;      }
-a:hover, a:focus, a:focus-within   { color: darkgreen; text-decoration: underline; }
-a:active, .active { color: darkgreen; text-decoration: underline;}
+a:link, a    { color: firebrick; text-decoration: none;      }
+a:hover, a:focus, a:focus-within   { color: firebrick; text-decoration: underline; }
+a:active, .active { color: firebrick; text-decoration: underline;}
 
-nav.navbar-nav a:active {color: darkgreen;}
+nav.navbar-nav a:active {color: firebrick;}
 
 
 
@@ -187,7 +187,7 @@ pre {
   -ms-transform: translate(-50%, -50%);
   text-align: center;
     color: white;
-    background-color: black;
+    background-color: firebrick;
 }
 
 .middlebacktext{
