@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <title>Linear Regression</title>
+ <!-- Latest compiled and minified Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!--link rel="stylesheet" href="theme/css/rdark.css" /-->
+<link rel="stylesheet" type="text/css" href="theme/css/main.css" />
+
+    <!-- Using MathJax, with the delimiters $ -->
+<!-- Conflict with pygments for the .mo and .mi -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+    styles: {
+    ".MathJax .mo, .MathJax .mi": {color: "black ! important"}}
+    },
+    tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']],processEscapes: true}
+    });
+  </script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+</head>
+<body>
+    
+    <title></title>
+    
+<nav >
+  <div class="container" id="navbar">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="index.html">Portfolio</a>
+    </div>
+    <ul class="nav navbar-nav">
+            <li><b>|</b></li>
+            <li>
+                <a href="./articles.html">Articles</a></li>
+            <li><b>|</b></li>
+            <li>
+                <a href="./cv.html">CV</a></li>
+            <li><b>|</b></li>
+            <li>
+                <a href="./hobby.html">Hobby</a></li>
+    </ul>
+  </div>
+</nav>
+    
+    
+<!-- Main Content -->
+ <div class="container" id="main">
+<div class="row">
+ <div class="col-md-12">
+        <h1><strong>Article | </strong>Linear Regression</h1>
+     <br>
+     <h4 style="padding-left: 7%; padding-right: 7%;"><p>Describes Linear Regression and how it can help you make accurate predictions in ML models</p></h4>
+     
+     
+     <div class="content">
+         <hr style="border-width: thin; border-color: black">
+         
+        <p>
+            <img src="theme/img/date3.png" style="height:25px" class="icon">  
+            <strong> | Article Year -- </strong> 2020</p>
+         <p>
+                <img src="theme/img/skills2.png" style="height:25px" class="icon">             
+             <strong> | Tags -- </strong>
+        <span>linear</span> | 
+        <span>regression</span> | 
+        <span>machine learning</span> | 
+        <span>ml</span> | 
+    </p>
+     
+
+
+    
+
+
+         
+        
+         
+         
+         
+         <hr style="border-width: thin; border-color: black; padding-bottom: 4%;">
+
+         <p><p><strong>The general idea:</strong></p>
+<ol>
+<li>Use least squares to fit a line to the data</li>
+<li>Calculate <strong>R<super>2</super></strong> (should be large)</li>
+<li>Calculate a p-value for <strong>R<super>2</super></strong> (should be small)<ul>
+<li>We calculate p-value because <strong>R<super>2</super></strong> is not reliable in itself.</li>
+</ul>
+</li>
+</ol>
+<p><a href="./img/article/linear_reg_01.png"><img alt="tiny" src="./img/article/linear_reg_01.png"></a></p>
+<p><strong>Example:</strong></p>
+<ol>
+<li>Fit a horizontal line onto the data and measure the distance from the line to the data points, square them and then add them up.<ul>
+<li>The distance from the line each data point is called a residual.</li>
+<li>We square the distance to avoid negative numbers.</li>
+</ul>
+</li>
+<li>Rotate the line and measure the distances again, generating a new sum.</li>
+<li>Repeat the process several times</li>
+<li>Plot the sum of squared residuals against the rotations and find the rotation with the lowest sum. This one will fit the data best.</li>
+<li>We now have an equation for the line after it has been fitted.</li>
+</ol>
+<p><a href="./img/article/linear_reg_02.png"><img alt="tiny" src="./img/article/linear_reg_02.png"></a></p>
+<p><strong>R<super>2</super></strong>:</p>
+<ol>
+<li>Shift all the data points to the y-axis (we are only interested in one feature)</li>
+<li>Find the average data point.</li>
+<li>Sum the squared residual for each data point (the distance from the average)
+$$SS(mean) = (data - mean)^2$$
+$$Var(mean) = \frac{(data - mean)^2}{n}$$
+        * 'n' is the sample size
+        * This is the average sum of squares per mouse
+$$SS(fit) = (data - line)^2$$
+$$Var(fit) = (data - line)^2 / n$$</li>
+<li><strong>R<super>2</super></strong> tells how much variation in feature X can be explained by taking feature Y into account. 
+$$R^2 = \frac{Var(mean) - Var(fit)}{Var(mean)}$$<ul>
+<li>E.g. if <strong>R<super>2</super></strong> is 0.6, then there is a 60% reduction in variance when we take feature Y into account.</li>
+</ul>
+</li>
+</ol>
+<p><a href="./img/article/linear_reg_03.png"><img alt="tiny" src="./img/article/linear_reg_03.png"></a></p>
+<p><strong>Least Squares</strong> will cause any term that makes SS(fit) worse to be multiplied by 0 and thus no longer exist an have an effect on the prediction.
+* But, the more features we add, the more chance for random events to reduce SS(fit)
+* The solution is to have an adjusted <strong>R<super>2</super></strong>, that considers the number of parameters. 
+If we only have 2 data points, then <strong>R<super>2</super></strong> will always be 1 = 100%.</p>
+<p>$$F=\frac{SS(mean) - SS(fit) / (p_{fit} - p_{mean})}{SS(fit) / (n - p_{fit})}$$</p>
+<p>How do you determine if <strong>R<super>2</super></strong> is statistically significant?</p>
+<ul>
+<li>Calculate a p-value for <strong>R<super>2</super></strong></li>
+<li>The p value comes from 'F'<ul>
+<li>The p numbers determine the 'degrees of freedom'</li>
+<li>Turns sums of squares into variances</li>
+</ul>
+</li>
+<li>P(fit) = number of parameters in the fit line (for a 2-dim line we have 2, the slope is the 'extra' parameter)</li>
+<li>P(mean) = number of parameters in the mean line (for a 2-dim line we have 1)</li>
+<li>The more parameters you have in your equation, the more data you need to make estimations. </li>
+<li>Numerator of F: Variance explained by the extra parameter(s)</li>
+</ul>
+<p>How to turn F into a p-value?</p>
+<ol>
+<li>Calculate F for a ton of generated random datasets</li>
+<li>Insert each value in a histogram</li>
+<li>The p-value is the number of more extreme values divided by all the values.</li>
+<li>You can also use the line of the histogram to calculate the p-value</li>
+<li>The p-value will be smaller when there are more samples relative to the number of parameters in SS(fit)</li>
+</ol></p>
+     </div>
+ </div>
+</div>
+</div>
+<!-- End of Main Content --> 
+   
+    
+<!--  Footer   -->
+    <div class="container" id="footer">
+        <ul>
+            <li>
+                <a href="mailto:thomb@hotmail.dk">
+                    <img src="theme/img/email.png" style="height:30px" class="icon">
+                </a> 
+            
+            </li>   
+            <li><b>|</b></li>
+            <li>                
+                <a target="_blank" href="https://www.linkedin.com/in/thomas-brunbjerg-8a6ba8137/">
+                    <img src="theme/img/linkedin.jpg" style="height:30px" class="icon">
+                </a> 
+            </li>
+            <li><b>|</b></li>
+                <li>
+                <a target="_blank" href="https://github.com/ThomB93">
+                    <img src="theme/img/github.png" style="height:30px" class="icon">
+                </a>
+            </li>
+            <li><b>|</b></li>
+                <li>
+                <a target="_blank" href="https://www.youtube.com/channel/UC3rc5zj8sLo_HiPXCxb0y4g">
+                    <img src="theme/img/youtube.png" style="height:30px" class="icon">
+                </a>
+            </li>
+        </ul>
+    </div>
+    
+<!--  End Footer  -->
+    
+</body>
+</html>

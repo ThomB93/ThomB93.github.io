@@ -28,6 +28,8 @@ report: article
 7. You can now create Random Forest Trees using a different number of columns at each step, and check which one has the best accuracy. 
 8. To predict from new data, run the data through all the trees and see which category got the most votes.
 
+[![small]({static}/img/article/randomforest_01.png)]({static}/img/article/randomforest_01.png)
+
 **Keywords:**
 
 * Bagging: Bootstrapping the data using the aggregate to make a decision
@@ -48,6 +50,10 @@ Data can be missing either in the original dataset (training data), or in the ne
         * If the same samples are similar in other trees, increment the value by 1 for each tree.
         * After all the trees have been run through, divide each value by the total number of trees.
         * Use the proximity values for the sample with missing data (4) to make a better guess.
+
+[![tiny]({static}/img/article/randomforest_04.png)]({static}/img/article/randomforest_04.png)
+[![tiny]({static}/img/article/randomforest_03.png)]({static}/img/article/randomforest_03.png)
+[![tiny]({static}/img/article/randomforest_02.png)]({static}/img/article/randomforest_02.png)
 
 **How to make a better guess using proximity matrix?**
 
@@ -73,6 +79,9 @@ Data can be missing either in the original dataset (training data), or in the ne
 2. Use the same iterative method as for the original samples for each of these new samples. You now have a guess for the missing data in each sample.
 3. Check which one of the samples is being correctly labeled the most times with the new guess. 
 4. The sample which is being correctly labeled the most times is the winner and the category for the new sample can be determined.
+
+[![tiny]({static}/img/article/randomforest_06.png)]({static}/img/article/randomforest_06.png)
+[![tiny]({static}/img/article/randomforest_05.png)]({static}/img/article/randomforest_05.png)
 
 **How to measure distance using proximity matrix?**
 

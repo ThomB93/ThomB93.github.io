@@ -113,6 +113,7 @@
 <li>You can now create Random Forest Trees using a different number of columns at each step, and check which one has the best accuracy. </li>
 <li>To predict from new data, run the data through all the trees and see which category got the most votes.</li>
 </ol>
+<p><a href="./img/article/randomforest_01.png"><img alt="small" src="./img/article/randomforest_01.png"></a></p>
 <p><strong>Keywords:</strong></p>
 <ul>
 <li>Bagging: Bootstrapping the data using the aggregate to make a decision</li>
@@ -137,6 +138,9 @@
 </ul>
 </li>
 </ol>
+<p><a href="./img/article/randomforest_04.png"><img alt="tiny" src="./img/article/randomforest_04.png"></a>
+<a href="./img/article/randomforest_03.png"><img alt="tiny" src="./img/article/randomforest_03.png"></a>
+<a href="./img/article/randomforest_02.png"><img alt="tiny" src="./img/article/randomforest_02.png"></a></p>
 <p><strong>How to make a better guess using proximity matrix?</strong></p>
 <ol>
 <li>Find the weighted frequency that each other value in the column have<ul>
@@ -167,6 +171,8 @@
 <li>Check which one of the samples is being correctly labeled the most times with the new guess. </li>
 <li>The sample which is being correctly labeled the most times is the winner and the category for the new sample can be determined.</li>
 </ol>
+<p><a href="./img/article/randomforest_06.png"><img alt="tiny" src="./img/article/randomforest_06.png"></a>
+<a href="./img/article/randomforest_05.png"><img alt="tiny" src="./img/article/randomforest_05.png"></a></p>
 <p><strong>How to measure distance using proximity matrix?</strong></p>
 <ol>
 <li>Distance = 1 - proximity values.<ul>
@@ -202,7 +208,7 @@
 <p><strong>Important Hyperparameters:</strong></p>
 <ul>
 <li>n_estimators: The total number of trees to build.</li>
-<li>Criterion: Can be “gini” or “entropy”. Determines what function to use when making splits in the tree.</li>
+<li>Criterion: Can be "gini" or “entropy”. Determines what function to use when making splits in the tree.</li>
 <li>Max_Depth: The maximum number of nodes from the root to the leaf nodes.</li>
 <li>Max Features: How to determine the best number of features when building the trees. </li>
 </ul></p>
