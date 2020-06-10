@@ -29,6 +29,7 @@ icons: no
 * [ARMA Model]({filename}/articles/arma.md)
 * [Random Forest]({filename}/articles/randomForest.md)
 * [Linear Regression]({filename}/articles/linearRegression.md)
+* [Covariance & Correlation]({filename}/articles/covCor.md)
 
 **Guides:**
 
