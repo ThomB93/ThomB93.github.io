@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <title>Covariance & Correlation</title>
+ <!-- Latest compiled and minified Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!--link rel="stylesheet" href="theme/css/rdark.css" /-->
+<link rel="stylesheet" type="text/css" href="theme/css/main.css" />
+
+    <!-- Using MathJax, with the delimiters $ -->
+<!-- Conflict with pygments for the .mo and .mi -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+    styles: {
+    ".MathJax .mo, .MathJax .mi": {color: "black ! important"}}
+    },
+    tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']],processEscapes: true}
+    });
+  </script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+</head>
+<body>
+    
+    <title></title>
+    
+<nav >
+  <div class="container" id="navbar">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="index.html">Portfolio</a>
+    </div>
+    <ul class="nav navbar-nav">
+            <li><b>|</b></li>
+            <li>
+                <a href="./articles.html">Articles</a></li>
+            <li><b>|</b></li>
+            <li>
+                <a href="./cv.html">CV</a></li>
+            <li><b>|</b></li>
+            <li>
+                <a href="./hobby.html">Hobby</a></li>
+    </ul>
+  </div>
+</nav>
+    
+    
+<!-- Main Content -->
+ <div class="container" id="main">
+<div class="row">
+ <div class="col-md-12">
+        <h1><strong>Article | </strong>Covariance & Correlation</h1>
+     <br>
+     <h4 style="padding-left: 7%; padding-right: 7%;"><p>Outlines the basic principles of covariance and correlation and how the two are related</p></h4>
+     
+     
+     <div class="content">
+         <hr style="border-width: thin; border-color: black">
+         
+        <p>
+            <img src="theme/img/date3.png" style="height:25px" class="icon">  
+            <strong> | Article Year -- </strong> 2020</p>
+         <p>
+                <img src="theme/img/skills2.png" style="height:25px" class="icon">             
+             <strong> | Tags -- </strong>
+        <span>covariance</span> | 
+        <span>correlation</span> | 
+        <span>machine learning</span> | 
+        <span>ml</span> | 
+    </p>
+     
+
+
+    
+
+
+         
+        
+         
+         
+         
+         <hr style="border-width: thin; border-color: black; padding-bottom: 4%;">
+
+         <p><p><strong>Variance:</strong></p>
+<ol>
+<li>Find the mean of the data points</li>
+<li>Calculate the distance to each data point from the mean.</li>
+<li>Subtract the mean from the distance value and square it. Do the same for all data points and sum them. Then divide that sum by the number of observations -1.</li>
+<li>This gives you the variance.</li>
+</ol>
+<p><a href="./img/article/covCor_01.png"><img alt="tiny" src="./img/article/covCor_01.png"></a></p>
+<p><strong>Question:</strong> Do the measurements taken in pairs tell us something that the individual measurements do not? Covariance tries to answer this question.</p>
+<p><strong>Covariance:</strong></p>
+<ul>
+<li>Can classify 3 types of relationships:<ul>
+<li>Positive trends</li>
+<li>Negative trends</li>
+<li>No trend</li>
+</ul>
+</li>
+<li>By itself, it is not very interesting</li>
+<li>Leads to correlation</li>
+</ul>
+<p>$$\frac{\sum(x-\bar{x})(y-\bar{y})}{n-1}$$</p>
+<p><strong>How to calculate?</strong></p>
+<ol>
+<li>For each data point (x and y, subtract the mean and sum them. Then divide that sum by the number of observations -1. <ul>
+<li>When both x and y are less than their respective means, multiplying them together gives a positive value.</li>
+<li>When both x and y are greater than their respective means, multiplying them together gives a positive value. </li>
+</ul>
+</li>
+<li>If the covariance value is positive, we have a positive trend. If the covariance value is negative, we have a negative trend. If the covariance value is 0, we have no trend. </li>
+<li>The covariance value does not tell us anything about the slope of the line. It is hard to interpret.</li>
+</ol>
+<p><a href="./img/article/covCor_02.png"><img alt="tiny" src="./img/article/covCor_02.png"></a></p>
+<p><strong>Why is the covariance value hard to interpret?</strong></p>
+<ol>
+<li>The covariance for X with itself, is the same thing as the estimated variance for X.</li>
+<li>The covariance value can change when the relationship does not change.<ul>
+<li>E.g. Multiplying each value of X by 2, will produce the same slope, but a new covariance value.</li>
+</ul>
+</li>
+<li>Covariance values are sensitive to the scale of the data</li>
+<li>Are used in principal component analysis</li>
+</ol>
+<p><strong>Correlation</strong> describes relationships and is NOT sensitive to the scale of the data.</p>
+<ul>
+<li>The closer the data is to the line, the more X can tell us about Y.<ul>
+<li>If data points fall close to the line, the relationship between X and Y is strong</li>
+<li>If data points fall far away from to the line, the relationship between X and Y is weak  </li>
+</ul>
+</li>
+</ul>
+<p>We use correlation to <strong>quantify the strength of a relationship</strong>.</p>
+<p><a href="./img/article/covCor_03.png"><img alt="tiny" src="./img/article/covCor_03.png"></a></p>
+<ul>
+<li>Correlation = 1, when the line goes through every data point in a positive trend.</li>
+<li>Correlation = -1, when the lines goes through every data point in a negative trend</li>
+<li>Correlation = 0, when a value on the X-axis does not tell us anything about the value on the y-axis</li>
+<li>With small datasets, we should have low confidence in the correlation value.<ul>
+<li>With 2 data points, there is no confidence in the correlation value, as we can always draw a straight line through them.</li>
+<li>The probability that we can draw a straight line through every point gets smaller the more points we have.</li>
+<li>When talking about correlation, we are only talking about straight lines.</li>
+<li>P-value tells us the probability that randomly drawn dots will result in a similarly strong relationship or stronger.<ul>
+<li>Smaller p-value = more confidence in predictions</li>
+<li>P-value gets larger the less data we have</li>
+</ul>
+</li>
+<li>Adding data does not always improve the correlation value.</li>
+<li>You can calculate correlation if you know the variance and covariance 
+$$Correlation = \frac {Covariance(X, Y)}{\sqrt{Variance(X)}\sqrt{Variance(Y)}}$$</li>
+<li>Denominator makes the covariance to be a number between -1  to 1. Ensures that the scale does not affect the correlation value.<ul>
+<li>E.g. if correlation is 0.9 and p-value is 0.03, then there is a 3% chance that random data could produce the same relationship or a stronger one.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul></p>
+     </div>
+ </div>
+</div>
+</div>
+<!-- End of Main Content --> 
+   
+    
+<!--  Footer   -->
+    <div class="container" id="footer">
+        <ul>
+            <li>
+                <a href="mailto:thomb@hotmail.dk">
+                    <img src="theme/img/email.png" style="height:30px" class="icon">
+                </a> 
+            
+            </li>   
+            <li><b>|</b></li>
+            <li>                
+                <a target="_blank" href="https://www.linkedin.com/in/thomas-brunbjerg-8a6ba8137/">
+                    <img src="theme/img/linkedin.jpg" style="height:30px" class="icon">
+                </a> 
+            </li>
+            <li><b>|</b></li>
+                <li>
+                <a target="_blank" href="https://github.com/ThomB93">
+                    <img src="theme/img/github.png" style="height:30px" class="icon">
+                </a>
+            </li>
+            <li><b>|</b></li>
+                <li>
+                <a target="_blank" href="https://www.youtube.com/channel/UC3rc5zj8sLo_HiPXCxb0y4g">
+                    <img src="theme/img/youtube.png" style="height:30px" class="icon">
+                </a>
+            </li>
+        </ul>
+    </div>
+    
+<!--  End Footer  -->
+    
+</body>
+</html>
