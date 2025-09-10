@@ -94,105 +94,100 @@
 <p>...</p>
 <p>This .NET application explores the basic features of Event Sourcing (Event Streams, Subscriptions, Projections, etc.) and provides an implementation of a simple User aggregate in the way of Domain-Driven Design. Users can input commands into a console to communicate the Event Store. While any database system can be used to hold events and act as an Event Store, for this project I have implemented the use of a dedicated system simply called <a href="https://eventstore.com/">EventStore</a>. </p>
 <p>To interact with the EventStore, I've made use of the .NET API Client, which handles all communication over TCP. To give an example of the API in action, let's see how you can create a simple stream and add some events to it.</p>
-<div class="highlight"><pre><span></span><code><span class="k">public</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">CreateAndRunTestStream</span><span class="p">(</span><span class="kt">string</span> <span class="n">streamName</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">CreateAndRunTestStream</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">streamName</span><span class="p">)</span>
 <span class="p">{</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kt">var</span> <span class="n">x</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">x</span> <span class="p">&lt;</span> <span class="m">3</span><span class="p">;</span> <span class="n">x</span><span class="p">++)</span>
-    <span class="p">{</span>
-        <span class="n">EventStoreLoader</span><span class="p">.</span><span class="n">Connection</span><span class="p">.</span><span class="n">AppendToStreamAsync</span><span class="p">(</span><span class="n">streamName</span><span class="p">,</span>
-            <span class="n">ExpectedVersion</span><span class="p">.</span><span class="n">Any</span><span class="p">,</span> 
-            <span class="n">GetEventData</span><span class="p">(</span><span class="n">x</span><span class="p">)).</span><span class="n">Wait</span><span class="p">();</span>
-        <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Event &quot;</span> <span class="p">+</span> <span class="n">x</span> <span class="p">+</span> <span class="s">&quot; has been written to &quot;</span> <span class="p">+</span> <span class="n">streamName</span><span class="p">);</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="m">3</span><span class="p">;</span><span class="w"> </span><span class="n">x</span><span class="o">++</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">EventStoreLoader</span><span class="p">.</span><span class="n">Connection</span><span class="p">.</span><span class="n">AppendToStreamAsync</span><span class="p">(</span><span class="n">streamName</span><span class="p">,</span>
+<span class="w">            </span><span class="n">ExpectedVersion</span><span class="p">.</span><span class="n">Any</span><span class="p">,</span><span class="w"> </span>
+<span class="w">            </span><span class="n">GetEventData</span><span class="p">(</span><span class="n">x</span><span class="p">)).</span><span class="n">Wait</span><span class="p">();</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Event &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; has been written to &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">streamName</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-
 
 <p>This method accepts a stream name and appends 3 events to it. If a stream with the name does not yet exist in the EventStore, a new stream will be created. A seperate method handles the creation of the event in the format that the EventStore expects.</p>
-<div class="highlight"><pre><span></span><code><span class="k">private</span> <span class="k">static</span> <span class="n">EventData</span> <span class="nf">GetEventData</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="k">private</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">EventData</span><span class="w"> </span><span class="nf">GetEventData</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span>
 <span class="p">{</span>
-    <span class="k">return</span> <span class="k">new</span> <span class="nf">EventData</span><span class="p">(</span>
-        <span class="n">Guid</span><span class="p">.</span><span class="n">NewGuid</span><span class="p">(),</span> 
-        <span class="s">&quot;eventType&quot;</span><span class="p">,</span>
-        <span class="k">true</span><span class="p">,</span> 
-        <span class="n">Encoding</span><span class="p">.</span><span class="n">ASCII</span><span class="p">.</span><span class="n">GetBytes</span><span class="p">(</span><span class="s">&quot;{\&quot;test-data\&quot; : &quot;</span> <span class="p">+</span> <span class="n">i</span> <span class="p">+</span> <span class="s">&quot;}&quot;</span><span class="p">),</span> 
-        <span class="n">Encoding</span><span class="p">.</span><span class="n">ASCII</span><span class="p">.</span><span class="n">GetBytes</span><span class="p">(</span><span class="s">&quot;{\&quot;meta-data\&quot; : &quot;</span> <span class="p">+</span> <span class="n">i</span> <span class="p">+</span> <span class="s">&quot;}&quot;</span><span class="p">)</span>
-    <span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="nf">EventData</span><span class="p">(</span>
+<span class="w">        </span><span class="n">Guid</span><span class="p">.</span><span class="n">NewGuid</span><span class="p">(),</span><span class="w"> </span>
+<span class="w">        </span><span class="s">&quot;eventType&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="k">true</span><span class="p">,</span><span class="w"> </span>
+<span class="w">        </span><span class="n">Encoding</span><span class="p">.</span><span class="n">ASCII</span><span class="p">.</span><span class="n">GetBytes</span><span class="p">(</span><span class="s">&quot;{\&quot;test-data\&quot; : &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;}&quot;</span><span class="p">),</span><span class="w"> </span>
+<span class="w">        </span><span class="n">Encoding</span><span class="p">.</span><span class="n">ASCII</span><span class="p">.</span><span class="n">GetBytes</span><span class="p">(</span><span class="s">&quot;{\&quot;meta-data\&quot; : &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;}&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
-
 
 <p>All events require an ID, a type, some data, and metadata. A GUID (Globally Unique Identifier) is provided as the ID and the data is being supplied in the JSON format, which acts as the standard data format for this particular EventStore. Data may be saved in any given format, but in this case, we would lose some capabilities of the EventStore. When looking at the events from the perspective of the EventStore admin UI, we can see that they have been saved correctly and appear in the 'test' stream. You can click on each individual event to get a look at its data and metadata. You can notice that they also appear in the order in which they were written. Storing the correct sequence of events is highly important when later the data needs to be queried. 
 <a href="./img/eventsourcingspike_03.png"><img alt="small" src="./img/eventsourcingspike_03.png"></a>
 In addition to event streams, one other important aspect of Event Sourcing is 'Subscriptions'. EventStore supports several different subscription types (Persistent, Catch-Up, and Volatile). Here we will mostly focus on the first two. The method below creates a persistent subscription with a standard configuration - it starts listening for events from the point it is created. All prior events in the stream are not being picked up. Catch-Up subscriptions work the other way around. They attempt to 'catch-up' with the stream in which they are subscribed, meaning all prior events are being picked up. We will look more closely at catch-up subscriptions when dealing with projections later on. </p>
-<div class="highlight"><pre><span></span><code><span class="k">private</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">CreatePersistentSubscription</span><span class="p">(</span><span class="kt">string</span> <span class="n">streamName</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="k">private</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">CreatePersistentSubscription</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">streamName</span><span class="p">)</span>
 <span class="p">{</span>
-    <span class="n">PersistentSubscriptionSettings</span> <span class="n">settings</span> <span class="p">=</span> <span class="n">PersistentSubscriptionSettings</span><span class="p">.</span><span class="n">Create</span><span class="p">()</span>
-        <span class="p">.</span><span class="n">DoNotResolveLinkTos</span><span class="p">()</span>
-        <span class="p">.</span><span class="n">StartFromCurrent</span><span class="p">();</span>
-    <span class="k">try</span>
-    <span class="p">{</span>
-        <span class="n">EventStoreLoader</span><span class="p">.</span><span class="n">Connection</span><span class="p">.</span><span class="n">CreatePersistentSubscriptionAsync</span><span class="p">(</span><span class="n">streamName</span><span class="p">,</span> <span class="n">GROUP</span><span class="p">,</span> <span class="n">settings</span><span class="p">,</span> <span class="k">new</span> <span class="n">UserCredentials</span><span class="p">(</span><span class="s">&quot;admin&quot;</span><span class="p">,</span> <span class="s">&quot;changeit&quot;</span><span class="p">)).</span><span class="n">Wait</span><span class="p">();</span>
-    <span class="p">}</span>
-    <span class="k">catch</span> <span class="p">(</span><span class="n">AggregateException</span> <span class="n">ex</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="n">ex</span><span class="p">.</span><span class="n">InnerException</span><span class="p">.</span><span class="n">GetType</span><span class="p">()</span> <span class="p">!=</span> <span class="k">typeof</span><span class="p">(</span><span class="n">InvalidOperationException</span><span class="p">)</span>
-            <span class="p">&amp;&amp;</span> <span class="n">ex</span><span class="p">.</span><span class="n">InnerException</span><span class="p">?.</span><span class="n">Message</span> <span class="p">!=</span> <span class="err">$</span><span class="s">&quot;Subscription group {GROUP} on stream {STREAM} already exists&quot;</span><span class="p">)</span>
-        <span class="p">{</span>
-            <span class="k">throw</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="n">PersistentSubscriptionSettings</span><span class="w"> </span><span class="n">settings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PersistentSubscriptionSettings</span><span class="p">.</span><span class="n">Create</span><span class="p">()</span>
+<span class="w">        </span><span class="p">.</span><span class="n">DoNotResolveLinkTos</span><span class="p">()</span>
+<span class="w">        </span><span class="p">.</span><span class="n">StartFromCurrent</span><span class="p">();</span>
+<span class="w">    </span><span class="k">try</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">EventStoreLoader</span><span class="p">.</span><span class="n">Connection</span><span class="p">.</span><span class="n">CreatePersistentSubscriptionAsync</span><span class="p">(</span><span class="n">streamName</span><span class="p">,</span><span class="w"> </span><span class="n">GROUP</span><span class="p">,</span><span class="w"> </span><span class="n">settings</span><span class="p">,</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">UserCredentials</span><span class="p">(</span><span class="s">&quot;admin&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;changeit&quot;</span><span class="p">)).</span><span class="n">Wait</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">AggregateException</span><span class="w"> </span><span class="n">ex</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ex</span><span class="p">.</span><span class="n">InnerException</span><span class="p">.</span><span class="n">GetType</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">typeof</span><span class="p">(</span><span class="n">InvalidOperationException</span><span class="p">)</span>
+<span class="w">            </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">ex</span><span class="p">.</span><span class="n">InnerException</span><span class="o">?.</span><span class="n">Message</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="s">$&quot;Subscription group {GROUP} on stream {STREAM} already exists&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">throw</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-
 
 <p>After creating the subscription we want to connect to it. The method below accepts a stream name and attempts to connect to a persistent subscriptions listening on this stream. When the connection has been made, and new events are added to the stream, the subscription will print the event details to the console. The subscription will remain active until the EventStore connection is closed. </p>
-<div class="highlight"><pre><span></span><code><span class="k">private</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">ConnectPersistentSubscription</span><span class="p">(</span><span class="kt">string</span> <span class="n">streamName</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="k">private</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">ConnectPersistentSubscription</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">streamName</span><span class="p">)</span>
 <span class="p">{</span>
-    <span class="n">EventStoreLoader</span><span class="p">.</span><span class="n">Connection</span><span class="p">.</span><span class="n">ConnectToPersistentSubscription</span><span class="p">(</span><span class="n">streamName</span><span class="p">,</span> <span class="n">GROUP</span><span class="p">,</span> <span class="p">(</span><span class="n">_</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="p">=&gt;</span>
-    <span class="p">{</span>
-        <span class="kt">var</span> <span class="n">data</span> <span class="p">=</span> <span class="n">Encoding</span><span class="p">.</span><span class="n">ASCII</span><span class="p">.</span><span class="n">GetString</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">Event</span><span class="p">.</span><span class="n">Data</span><span class="p">);</span>
-        <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Received new event: EventStreamId = &quot;</span> <span class="p">+</span> <span class="n">x</span><span class="p">.</span><span class="n">Event</span><span class="p">.</span><span class="n">EventStreamId</span> <span class="p">+</span> <span class="s">&quot; : EventNumber = &quot;</span> <span class="p">+</span> <span class="n">x</span><span class="p">.</span><span class="n">Event</span><span class="p">.</span><span class="n">EventNumber</span> <span class="p">+</span> <span class="s">&quot; : Created at = &quot;</span> <span class="p">+</span> <span class="n">x</span><span class="p">.</span><span class="n">Event</span><span class="p">.</span><span class="n">Created</span> <span class="p">+</span><span class="s">&quot;\n&quot;</span><span class="p">);</span>
-        <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>
-    <span class="p">});</span>
-    <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Waiting for new events...&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="n">EventStoreLoader</span><span class="p">.</span><span class="n">Connection</span><span class="p">.</span><span class="n">ConnectToPersistentSubscription</span><span class="p">(</span><span class="n">streamName</span><span class="p">,</span><span class="w"> </span><span class="n">GROUP</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Encoding</span><span class="p">.</span><span class="n">ASCII</span><span class="p">.</span><span class="n">GetString</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">Event</span><span class="p">.</span><span class="n">Data</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Received new event: EventStreamId = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">Event</span><span class="p">.</span><span class="n">EventStreamId</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; : EventNumber = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">Event</span><span class="p">.</span><span class="n">EventNumber</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; : Created at = &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">Event</span><span class="p">.</span><span class="n">Created</span><span class="w"> </span><span class="o">+</span><span class="s">&quot;\n&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="n">data</span><span class="p">);</span>
+<span class="w">    </span><span class="p">});</span>
+<span class="w">    </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Waiting for new events...&quot;</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
-
 
 <p>Now that we have created all these events, we might want to query them to extract their information. The <em>ListOperations</em> method will display all events of a given stream in either direction (forwards/backwards). Since a stream may contain hundreds or even thousands of events, we make use of 'stream even slices' to record the position in the stream when querying. We loop through each slice, each contaning a subset of the entire stream (20 events in this case) and add the events contained to the list of ResolvedEvent objects. When we have reached the end of the stream, we print the events to the console with some information about their creation date and type. </p>
-<div class="highlight"><pre><span></span><code><span class="k">private</span> <span class="k">static</span> <span class="k">void</span> <span class="nf">ListOperations</span><span class="p">(</span><span class="kt">string</span> <span class="n">streamName</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">reversed</span> <span class="p">=</span> <span class="k">false</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="k">private</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">ListOperations</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">streamName</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">reversed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">false</span><span class="p">)</span>
 <span class="p">{</span>
-    <span class="kt">var</span> <span class="n">streamEvents</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">ResolvedEvent</span><span class="p">&gt;();</span>
+<span class="w">    </span><span class="kt">var</span><span class="w"> </span><span class="n">streamEvents</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">ResolvedEvent</span><span class="o">&gt;</span><span class="p">();</span>
 
-    <span class="n">StreamEventsSlice</span> <span class="n">currentSlice</span><span class="p">;</span>
-    <span class="kt">long</span> <span class="n">nextSliceStart</span> <span class="p">=</span> <span class="n">reversed</span> <span class="p">?</span> <span class="n">StreamPosition</span><span class="p">.</span><span class="n">End</span> <span class="p">:</span> <span class="n">StreamPosition</span><span class="p">.</span><span class="n">Start</span><span class="p">;</span>
-    <span class="k">do</span>
-    <span class="p">{</span>
-        <span class="n">currentSlice</span> <span class="p">=</span>
-            <span class="n">reversed</span> <span class="p">?</span>
-                <span class="n">EventStoreLoader</span><span class="p">.</span><span class="n">Connection</span><span class="p">.</span><span class="n">ReadStreamEventsBackwardAsync</span><span class="p">(</span> 
-                    <span class="n">streamName</span><span class="p">,</span> 
-                    <span class="n">nextSliceStart</span><span class="p">,</span> 
-                    <span class="m">20</span><span class="p">,</span>
-                    <span class="k">false</span><span class="p">).</span><span class="n">Result</span> <span class="p">/</span>
+<span class="w">    </span><span class="n">StreamEventsSlice</span><span class="w"> </span><span class="n">currentSlice</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">long</span><span class="w"> </span><span class="n">nextSliceStart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">reversed</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">StreamPosition</span><span class="p">.</span><span class="n">End</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">StreamPosition</span><span class="p">.</span><span class="n">Start</span><span class="p">;</span>
+<span class="w">    </span><span class="k">do</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">currentSlice</span><span class="w"> </span><span class="o">=</span>
+<span class="w">            </span><span class="n">reversed</span><span class="w"> </span><span class="o">?</span>
+<span class="w">                </span><span class="n">EventStoreLoader</span><span class="p">.</span><span class="n">Connection</span><span class="p">.</span><span class="n">ReadStreamEventsBackwardAsync</span><span class="p">(</span><span class="w"> </span>
+<span class="w">                    </span><span class="n">streamName</span><span class="p">,</span><span class="w"> </span>
+<span class="w">                    </span><span class="n">nextSliceStart</span><span class="p">,</span><span class="w"> </span>
+<span class="w">                    </span><span class="m">20</span><span class="p">,</span>
+<span class="w">                    </span><span class="k">false</span><span class="p">).</span><span class="n">Result</span><span class="w"> </span><span class="o">/</span>
 
-                <span class="p">:</span>
-                <span class="n">EventStoreLoader</span><span class="p">.</span><span class="n">Connection</span><span class="p">.</span><span class="n">ReadStreamEventsForwardAsync</span><span class="p">(</span> 
-                    <span class="n">streamName</span><span class="p">,</span>
-                    <span class="n">nextSliceStart</span><span class="p">,</span>
-                    <span class="m">20</span><span class="p">,</span>
-                    <span class="k">false</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
-        <span class="n">nextSliceStart</span> <span class="p">=</span> <span class="n">currentSlice</span><span class="p">.</span><span class="n">NextEventNumber</span><span class="p">;</span>
-        <span class="n">streamEvents</span><span class="p">.</span><span class="n">AddRange</span><span class="p">(</span><span class="n">currentSlice</span><span class="p">.</span><span class="n">Events</span><span class="p">);</span> 
-    <span class="p">}</span> <span class="k">while</span> <span class="p">(!</span><span class="n">currentSlice</span><span class="p">.</span><span class="n">IsEndOfStream</span><span class="p">);</span>
+<span class="w">                </span><span class="p">:</span>
+<span class="w">                </span><span class="n">EventStoreLoader</span><span class="p">.</span><span class="n">Connection</span><span class="p">.</span><span class="n">ReadStreamEventsForwardAsync</span><span class="p">(</span><span class="w"> </span>
+<span class="w">                    </span><span class="n">streamName</span><span class="p">,</span>
+<span class="w">                    </span><span class="n">nextSliceStart</span><span class="p">,</span>
+<span class="w">                    </span><span class="m">20</span><span class="p">,</span>
+<span class="w">                    </span><span class="k">false</span><span class="p">).</span><span class="n">Result</span><span class="p">;</span>
+<span class="w">        </span><span class="n">nextSliceStart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">currentSlice</span><span class="p">.</span><span class="n">NextEventNumber</span><span class="p">;</span>
+<span class="w">        </span><span class="n">streamEvents</span><span class="p">.</span><span class="n">AddRange</span><span class="p">(</span><span class="n">currentSlice</span><span class="p">.</span><span class="n">Events</span><span class="p">);</span><span class="w"> </span>
+<span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">currentSlice</span><span class="p">.</span><span class="n">IsEndOfStream</span><span class="p">);</span>
 
-    <span class="k">foreach</span> <span class="p">(</span><span class="kt">var</span> <span class="n">view</span> <span class="k">in</span> <span class="n">streamEvents</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Event No: &quot;</span> <span class="p">+</span> <span class="n">view</span><span class="p">.</span><span class="n">Event</span><span class="p">.</span><span class="n">EventNumber</span> <span class="p">+</span> <span class="s">&quot; Created at: &quot;</span> <span class="p">+</span> <span class="n">view</span><span class="p">.</span><span class="n">Event</span><span class="p">.</span><span class="n">Created</span> <span class="p">+</span> <span class="s">&quot;  Type: &quot;</span> <span class="p">+</span> <span class="n">view</span><span class="p">.</span><span class="n">Event</span><span class="p">.</span><span class="n">EventType</span><span class="p">);</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">view</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">streamEvents</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Console</span><span class="p">.</span><span class="n">WriteLine</span><span class="p">(</span><span class="s">&quot;Event No: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">view</span><span class="p">.</span><span class="n">Event</span><span class="p">.</span><span class="n">EventNumber</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot; Created at: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">view</span><span class="p">.</span><span class="n">Event</span><span class="p">.</span><span class="n">Created</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s">&quot;  Type: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">view</span><span class="p">.</span><span class="n">Event</span><span class="p">.</span><span class="n">EventType</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-
 
 <h2>Use with Domain-Driven Design</h2></p>
      </div>

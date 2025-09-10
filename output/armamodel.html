@@ -122,12 +122,10 @@ Before we can begin creating the ARMA model, we first need to determine the orde
 <span class="n">model</span> <span class="o">=</span> <span class="n">ARMA</span><span class="p">(</span><span class="n">train_data</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
 </code></pre></div>
 
-
 <p>To fit the ARMA model to the training data, simply call the fit function. We then also print a summary of the resulsts from the model.</p>
 <div class="highlight"><pre><span></span><code><span class="n">model_fit</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">model_fit</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 </code></pre></div>
-
 
 <p>One part of this results summary is the table of coefficients. This tells us the values of out coefficients and whether they are significant or not. You might notice that there are 4 AR coefficients at the different time lags, corresponding to the order that we defined. All the values are negative, which indicates that the value for our current time period is negatively correlated with the lags at 1-4. The MA coefficient is positive, which indicate a positive correlation to our current time period for lag 1. 
 The P &gt; | z (P greater than absolute value of z) tells us how significant each coefficient is in our model. The smaller the value, the more significant in its predictive power - a value of 0.05 or less is preferred. 
@@ -137,7 +135,6 @@ This gives us a final model, with the newly found coefficients plotted in:</p>
 <p>We can now use this model to make our predictions. In python we do this by calling the predict function on the model, setting the start and end dates for the predictions to be made.</p>
 <div class="highlight"><pre><span></span><code><span class="n">predictions</span> <span class="o">=</span> <span class="n">model_fit</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">pred_start_date</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="n">pred_end_date</span><span class="p">)</span>
 </code></pre></div>
-
 
 <p>Below you can see the predictions made by the model in contrast to the actual test data. You'll notice that the model performs quite well in predicting the shape, but that it leaves some gaps towards the end, which will needed to be corrected for.<br>
 <a href="./img/article/arma_pred.png"><img alt="small" src="./img/article/arma_pred.png"></a></p></p>
