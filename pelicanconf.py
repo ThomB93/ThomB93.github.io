@@ -10,7 +10,11 @@ THEME = "theme/mytheme"
 
 PATH = 'content'
 
-STATIC_PATHS = ['img']
+STATIC_PATHS = ['img', 'img/favicon.ico']
+
+EXTRA_PATH_METADATA = {
+    'img/favicon.ico': {'path': 'favicon.ico'},
+}
 
 PAGE_PATHS = ['pages']
 PAGE_URL = '{slug}.html'

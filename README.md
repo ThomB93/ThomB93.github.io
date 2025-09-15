@@ -2,8 +2,6 @@
 
 To add new changes to the site, execute the following commands in order:
 
-pelican content
-git add .
-git commit -m "message"
-git push origin master
-git subtree push --prefix output heroku master
+$ python -m pelican content -o output -s pelicanconf.py
+$ python -m ghp_import output -b gh-pages
+$ git push origin gh-pages
